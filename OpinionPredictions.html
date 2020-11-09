@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Supreme court decision predictions</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid #ccc;
+            padding: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>2020-2021 term</h1>
+    <table id="2020">
+
+    </table>
+</body>
+<script>
+    const justices = ["Roberts", "Thomas", "Breyer", "Alito", "Sotomayor", "Kagan", "Gorsuch", "Kavanaugh", "Barrett"];
+    const cases = [
+        {
+            name: "Borden v. United States",
+            url: "https://www.oyez.org/cases/2020/19-5410",
+            peterOpinion: "United States",
+            peterJustification: `The goal of the Armed Career Criminal Act seems to be to increase the severity of punishments for criminals who have demonstrated a history of violent crime and thus pose a greater threat to society.
+            Reckless violent crimes pose the same threat to society as non-reckless violent crimes, and it seems to be within the government's interest to include them under the ACCA.<br>
+            Including reckless crimes does not seem to be a big threat to the rule of lenity, since invoking the ACCA requires three prior violent crimes on top of illegally possessing a firearm as a felon.`,
+            predictions: [{
+                text: "The court will rule for the United States, upholding the same decision the two lower courts made."
+            },
+            {
+                text: "The court will rule unanimously."
+            }]
+        },
+        {
+            name: "Jones v. Mississippi",
+            url: "https://www.oyez.org/cases/2020/18-1259",
+            peterOpinion: "Jones",
+            peterJustification: `Since life imprisonment without parole is a serious punishment, especially for a juvenile, 
+            it is reasonable to require a judge imposing such a sentence to explicitly justify why they found the defendant to be permanently incorrigible, and seems to be required by Miller v. Alabama and Montgomery v. Louisiana precedent.`,
+            predictions: [
+                { text: "Thomas will rule for Mississippi becase he dissented in both Miller v. Alabama and Montgomery v. Louisiana." },
+                { text: `Alito will rule for Mississippi, as above. Also, during the argument, he seemed to cast doubt on the validity of the case because it is "light years away" from the original intent of the Eigth Amendment and indicated that whether or not someone is capable of redemption was more of a philosophical question than a legal question.` },
+                { text: `Kavanaugh will rule for Mississippi because in the oral argument he indicated that any judge who sentences a juvenile to life imprisonment would most likely have considered whether or not they were permanently incorrigible, and judges are usually presumed to be aware of the law and to have weighed all of the relevant factors even if they don't explicitly mention it in their ruling.` },
+                { text: `Breyer will rule for Jones because he was in the majority in both Miller v. Alabama and Montgomery v. Louisiana.` },
+                { text: `Sotomayor will rule for Jones, as above.` },
+                { text: `Kagan will rule for Jones, as above.` },
+            ],
+            justiceOpinions: []
+        }];
+
+    const table = document.getElementById("2020");
+    const headerRow = document.createElement("tr");
+    headerRow.innerHTML = "<th>Case</th><th>Peter opinion</th><th>Peter's justification and predictions</th>";
+    for (const justice of justices) {
+        const cell = document.createElement("th");
+        cell.innerHTML = justice;
+        headerRow.append(cell);
+    }
+    table.append(headerRow);
+
+    for (const c of cases) {
+        const { name, url, peterOpinion, peterJustification, predictions } = c;
+        const row = document.createElement("tr");
+        row.innerHTML = `<td><a href="${url}">${name}</a></td>
+        <td>${peterOpinion}</td>
+        <td>${peterJustification}<hr/><ul><li>${predictions.map(x => x.text).join("</li><li>")}</li></ul></td>`;
+        table.append(row);
+    }
+</script>
+
+</html>
