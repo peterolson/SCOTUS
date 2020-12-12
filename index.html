@@ -64,8 +64,8 @@
     <table id="agreements">
         <tr>
             <td></td>
-            <td>Agree #</td>
             <td>Total #</td>
+            <td>Agree #</td>
             <td>Agree %</td>
         </tr>
     </table>
@@ -531,7 +531,7 @@
     for (const justice of ["Court"].concat(justices)) {
         const { agree, total } = agreements[justice];
         const row = document.createElement("tr");
-        row.innerHTML = `<td>Agree with ${justice}</td><td>${agree}</td><td>${total}</td><td>${(agree * 100 / total).toFixed(2)}%</td>`;
+        row.innerHTML = `<td>with ${justice}</td><td>${total}</td><td>${agree}</td><td>${(agree * 100 / total).toFixed(2)}%</td>`;
         agreementsTable.appendChild(row);
     }
 </script>
