@@ -17,11 +17,72 @@
             border: 1px solid #ccc;
             padding: 8px;
         }
+
+        .majority {
+            background-color: green;
+        }
+
+        .concur {
+            background-color: greenyellow;
+        }
+
+        .dissent {
+            background-color: red;
+        }
+
+        .author {
+            border: 3px solid blue;
+        }
+
+        .correct {
+            color: darkgreen;
+        }
+
+        .correct:before {
+            content: "✔️ ";
+        }
+
+        .incorrect {
+            color: darkred;
+        }
+
+        .incorrect:before {
+            content: "❌ ";
+        }
     </style>
 </head>
 
 <body>
     <h1>2020-2021 term</h1>
+    <h2>Predictions</h2>
+    <ul>
+        <li>Total predictions: <strong id="totalPredictions"></strong></li>
+        <li>Correct predictions: <strong id="correctPredictions"></strong></li>
+        <li>Incorrect predictions: <strong id="incorrectPredictions"></strong></li>
+    </ul>
+    <h2>Agreements</h2>
+    <table id="agreements">
+        <tr>
+            <td></td>
+            <td>Agree #</td>
+            <td>Total #</td>
+            <td>Agree %</td>
+        </tr>
+    </table>
+    <h2>Legend</h2>
+    <table>
+        <tbody>
+            <tr>
+                <td class="majority author">Wrote majority opinion</td>
+                <td class="majority join">Joined majority opinion</td>
+                <td class="concur author">Wrote concurring opinion</td>
+                <td class="concur join">Joined concurring opinion</td>
+                <td class="dissent author">Wrote dissenting opinion</td>
+                <td class="dissent join">Joined dissenting opinion</td>
+                <td>Did not participate</td>
+            </tr>
+        </tbody>
+    </table><br />
     <table id="2020">
 
     </table>
@@ -35,9 +96,20 @@
             peterOpinion: "Adams",
             peterJustification: `Judgeship positions should not be partisan and judges should not be required to be affiliated with any specific political party. The Delaware law bars judges who are not affiliated with the Republican or Democrat parties from serving.`,
             predictions: [
-                { text: "Alito will rule for Carney on the grounds that Adams does not have standing in this case, since there were judgeship positions that he could have accepted." },
-                { text: "The court will rule for Adams, upholding the lower courts' decision." }
-            ]
+                { text: "Alito will rule for Carney on the grounds that Adams does not have standing in this case, since there were judgeship positions that he could have accepted.", isCorrect: true },
+                { text: "The court will rule for Adams, upholding the lower courts' decision.", isCorrect: false }
+            ],
+            peterResult: "dissent join",
+            opinions: {
+                Roberts: "majority join",
+                Thomas: "majority join",
+                Breyer: "majority author",
+                Alito: "majority join",
+                Sotomayor: "concur author",
+                Kagan: "majority join",
+                Gorsuch: "majority join",
+                Kavanaugh: "majority join"
+            }
         },
         {
             name: "Texas v. New Mexico",
@@ -51,8 +123,19 @@
             url: "https://www.oyez.org/cases/2020/19-71",
             peterOpinion: "Tanvir",
             peterJustification: `Injunctive relief would not be helpful to the plaintiffs in this case, and FBI agents should not be be allowed to violate first and fifth amendment rights with impunity.`,
-            predictions: [{ text: "The court will rule for Tanvir." },
-            { text: "The court will rule unanimously." }]
+            predictions: [{ text: "The court will rule for Tanvir.", isCorrect: true },
+            { text: "The court will rule unanimously.", isCorrect: true }],
+            peterResult: "majority join",
+            opinions: {
+                Roberts: "majority join",
+                Thomas: "majority author",
+                Breyer: "majority join",
+                Alito: "majority join",
+                Sotomayor: "majority join",
+                Kagan: "majority join",
+                Gorsuch: "majority join",
+                Kavanaugh: "majority join"
+            }
         },
         {
             name: "Rutledge v. Pharmaceutical Care Management Association",
@@ -60,9 +143,20 @@
             peterOpinion: "Rutledge",
             peterJustification: `The facts of this case are confusing, but it seems that the state of Arkansas has an interest in keeping smaller pharmacies solvent and should be able to regulate PBMs accordingly. Also, similar regulations by New York were permitted by a unanimous court in the case New York State Conference of Blue Cross & Blue Shield Plans v. Travelers Ins. Co.`,
             predictions: [
-                { text: "The court will rule for Rutledge." },
-                { text: "The court will rule unanimously." }
-            ]
+                { text: "The court will rule for Rutledge.", isCorrect: true },
+                { text: "The court will rule unanimously.", isCorrect: true }
+            ],
+            peterResult: "majority join",
+            opinions: {
+                Roberts: "majority join",
+                Thomas: "concur author",
+                Breyer: "majority join",
+                Alito: "majority join",
+                Sotomayor: "majority author",
+                Kagan: "majority join",
+                Gorsuch: "majority join",
+                Kavanaugh: "majority join"
+            }
         },
         {
             name: "Google LLC v. Oracle America Inc.",
@@ -90,8 +184,19 @@
             url: "https://www.oyez.org/cases/2020/19-108",
             peterOpinion: "United States",
             peterJustification: `The military code specifies that any crime punishable by death has no statute of limitations, and the same code also specifies crimes which are punishable by death. It seems more likely that the intent of the phrase "punishable by death" was to refer to crimes the code itself indicated as punishable by death, rather than to the more nebulous constitutional question of crimes that are punishable by death under the 8th amendment.`,
-            predictions: [{ text: "The court will rule for the United States." },
-            { text: "The court will rule unanimously." }]
+            predictions: [{ text: "The court will rule for the United States.", isCorrect: true },
+            { text: "The court will rule unanimously.", isCorrect: true }],
+            peterResult: "majority join",
+            opinions: {
+                Roberts: "majority join",
+                Thomas: "majority join",
+                Breyer: "majority join",
+                Alito: "majority author",
+                Sotomayor: "majority join",
+                Kagan: "majority join",
+                Gorsuch: "concur author",
+                Kavanaugh: "majority join"
+            }
         },
         {
             name: "City of Chicago v. Fulton",
@@ -375,13 +480,59 @@
     }
     table.append(headerRow);
 
+    let correctPredictions = 0;
+    let totalPredictions = 0;
+
+    const agreements = {
+        Court: { agree: 0, total: 0 }
+    };
+
     for (const c of cases) {
-        const { name, url, peterOpinion, peterJustification, predictions } = c;
+        const { name, url, peterOpinion, peterJustification, predictions, peterResult, opinions } = c;
         const row = document.createElement("tr");
+        if (peterResult) {
+            agreements.Court.total++;
+            if (peterResult.includes("majority") || peterResult.includes("concur")) {
+                agreements.Court.agree++;
+            }
+        }
         row.innerHTML = `<td><a href="${url}">${name}</a></td>
-        <td>${peterOpinion}</td>
-        <td>${peterJustification}<hr/><ul><li>${predictions.map(x => x.text).join("</li><li>")}</li></ul></td>`;
+        <td class="${peterResult || ""}">${peterOpinion}</td>
+        <td>${peterJustification}<hr/><ul>${predictions.map(x => {
+            let className = "";
+            if ("isCorrect" in x) {
+                totalPredictions++;
+                if (x.isCorrect) {
+                    className = "correct";
+                    correctPredictions++;
+                }
+                else className = "incorrect";
+            }
+            return `<li class="${className}">${x.text}</li>`
+        }).join("")}</ul></td>
+        ${justices.map(justice => {
+            let opinion = (opinions || {})[justice];
+            agreements[justice] = agreements[justice] || { agree: 0, total: 0 };
+            if (opinion && peterResult) {
+                agreements[justice].total++;
+                if ((peterResult.includes("majority") || peterResult.includes("concur")) && (opinion.includes("majority") || opinion.includes("concur"))) {
+                    agreements[justice].agree++;
+                }
+            }
+            return `<td class="${opinion || ""}">${justice}</td>`;
+        }).join("")}`;
         table.append(row);
+    }
+    document.getElementById("totalPredictions").innerHTML = totalPredictions;
+    document.getElementById("correctPredictions").innerHTML = correctPredictions + ` (${(correctPredictions * 100 / totalPredictions).toFixed(2)}%)`;
+    document.getElementById("incorrectPredictions").innerHTML = (totalPredictions - correctPredictions) + ` (${((totalPredictions - correctPredictions) * 100 / totalPredictions).toFixed(2)}%)`;
+
+    const agreementsTable = document.getElementById("agreements");
+    for (const justice of ["Court"].concat(justices)) {
+        const { agree, total } = agreements[justice];
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>Agree with ${justice}</td><td>${agree}</td><td>${total}</td><td>${(agree * 100 / total).toFixed(2)}%</td>`;
+        agreementsTable.appendChild(row);
     }
 </script>
 
