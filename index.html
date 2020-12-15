@@ -26,6 +26,10 @@
             background-color: greenyellow;
         }
 
+        .mixed {
+            background-color: rgb(255, 230, 0);
+        }
+
         .dissent {
             background-color: red;
         }
@@ -77,6 +81,8 @@
                 <td class="majority join">Joined majority opinion</td>
                 <td class="concur author">Wrote concurring opinion</td>
                 <td class="concur join">Joined concurring opinion</td>
+                <td class="mixed author">Wrote partial dissent/partial concur</td>
+                <td class="mixed join">Joined partial dissent/partial concur</td>
                 <td class="dissent author">Wrote dissenting opinion</td>
                 <td class="dissent join">Joined dissenting opinion</td>
                 <td>Did not participate</td>
@@ -116,7 +122,18 @@
             url: "https://www.oyez.org/cases/2020/65-orig",
             peterOpinion: "New Mexico",
             peterJustification: `The facts of this case are confusing, but it seems that the river master acted in good faith and had the authority to make the decisions that were made.`,
-            predictions: [{ text: "The court will rule for New Mexico, upholding the river master's decisions." }]
+            predictions: [{ text: "The court will rule for New Mexico, upholding the river master's decisions.", isCorrect: true }],
+            peterResult: "majority join",
+            opinions: {
+                Roberts: "majority join",
+                Thomas: "majority join",
+                Breyer: "majority join",
+                Alito: "mixed author",
+                Sotomayor: "majority join",
+                Kagan: "majority join",
+                Gorsuch: "majority join",
+                Kavanaugh: "majority author"
+            }
         },
         {
             name: "FNU Tanzin v. Tanvir",
@@ -520,8 +537,13 @@
             agreements[justice] = agreements[justice] || { agree: 0, total: 0 };
             if (opinion && peterResult) {
                 agreements[justice].total++;
-                if ((peterResult.includes("majority") || peterResult.includes("concur")) && (opinion.includes("majority") || opinion.includes("concur"))) {
-                    agreements[justice].agree++;
+                if ((peterResult.includes("majority") || peterResult.includes("concur"))) {
+                    if (opinion.includes("majority") || opinion.includes("concur")) {
+                        agreements[justice].agree++;
+                    }
+                    if (opinion.includes("mixed")) {
+                        agreements[justice].agree += 0.5;
+                    }
                 }
             }
             return `<td class="${opinion || ""}">${justice}</td>`;
