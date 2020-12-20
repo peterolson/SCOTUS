@@ -367,11 +367,23 @@
             peterOpinion: "New York",
             peterJustification: "The constitution says that the census enumeration should be the \"number of free persons\" and does not exclude undocumented immigrants, and including undocumented immigrants is longstanding precedent in US censuses.",
             predictions: [
-                { text: "The court will rule for New York." },
-                { text: "Sotomayor will rule for New York." },
-                { text: "Gorsuch will rule for New York." },
-                { text: "Barrett will rule for New York." }
-            ]
+                { text: "The court will rule for New York.", isCorrect: false },
+                { text: "Sotomayor will rule for New York.", isCorrect: true },
+                { text: "Gorsuch will rule for New York.", isCorrect: false },
+                { text: "Barrett will rule for New York.", isCorrect: false }
+            ],
+            peterResult: "dissent join",
+            opinions: {
+                Roberts: "majority join",
+                Thomas: "majority join",
+                Breyer: "dissent author",
+                Alito: "majority join",
+                Sotomayor: "dissent join",
+                Kagan: "dissent join",
+                Gorsuch: "majority join",
+                Kavanaugh: "majority join",
+                Barrett: "majority join"
+            }
         },
         {
             name: "CIC Services, LLC v. Internal Revenue Service",
@@ -452,9 +464,10 @@
         {
             name: "Collins v. Mnuchin",
             url: "https://www.oyez.org/cases/2020/19-422",
-            peterOpinion: "",
-            peterJustification: "",
-            predictions: []
+            peterOpinion: "Mnuchin",
+            peterJustification: "After listening to the arguments for this case twice, I still don't feel like I understand what's going on",
+            predictions: [{ text: "The court will rule for Mnuchin." },
+            { text: "The court will rule unanimously." }]
         },
         {
             name: "PHAM V. CHAVEZ",
@@ -539,6 +552,13 @@
                 agreements[justice].total++;
                 if ((peterResult.includes("majority") || peterResult.includes("concur"))) {
                     if (opinion.includes("majority") || opinion.includes("concur")) {
+                        agreements[justice].agree++;
+                    }
+                    if (opinion.includes("mixed")) {
+                        agreements[justice].agree += 0.5;
+                    }
+                } else if (peterResult.includes("dissent")) {
+                    if (opinion.includes("dissent")) {
                         agreements[justice].agree++;
                     }
                     if (opinion.includes("mixed")) {
