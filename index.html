@@ -220,8 +220,19 @@
             url: "https://www.oyez.org/cases/2020/19-357",
             peterOpinion: "Fulton",
             peterJustification: `The facts of this case are confusing, but it seems that the city was an unsecured creditor when the bankruptcy court approved of Fulton's bankruptcy plan, and doesn't have the right to maintain possession of Fulton's car.`,
-            predictions: [{ text: "The court will rule for Fulton." },
-            { text: "The court will rule unanimously." }]
+            predictions: [{ text: "The court will rule for Fulton.", isCorrect: false },
+            { text: "The court will rule unanimously.", isCorrect: true }],
+            peterResult: "dissent join",
+            opinions: {
+                Roberts: "majority join",
+                Thomas: "majority join",
+                Breyer: "majority join",
+                Alito: "majority author",
+                Sotomayor: "concur author",
+                Kagan: "majority join",
+                Gorsuch: "majority join",
+                Kavanaugh: "majority join"
+            }
         },
         {
             name: "Torres v. Madrid",
