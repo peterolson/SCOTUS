@@ -95,451 +95,638 @@
 </body>
 <script>
     const justices = ["Roberts", "Thomas", "Breyer", "Alito", "Sotomayor", "Kagan", "Gorsuch", "Kavanaugh", "Barrett"];
-    const cases = [
-        {
-            name: "Carney v. Adams",
-            url: "https://www.oyez.org/cases/2020/19-309",
-            peterOpinion: "Adams",
-            peterJustification: `Judgeship positions should not be partisan and judges should not be required to be affiliated with any specific political party. The Delaware law bars judges who are not affiliated with the Republican or Democrat parties from serving.`,
-            predictions: [
-                { text: "Alito will rule for Carney on the grounds that Adams does not have standing in this case, since there were judgeship positions that he could have accepted.", isCorrect: true },
-                { text: "The court will rule for Adams, upholding the lower courts' decision.", isCorrect: false }
-            ],
-            peterResult: "dissent join",
-            opinions: {
-                Roberts: "majority join",
-                Thomas: "majority join",
-                Breyer: "majority author",
-                Alito: "majority join",
-                Sotomayor: "concur author",
-                Kagan: "majority join",
-                Gorsuch: "majority join",
-                Kavanaugh: "majority join"
-            }
+    const cases = [{
+        name: "Carney v. Adams",
+        url: "https://www.oyez.org/cases/2020/19-309",
+        peterOpinion: "Adams",
+        peterJustification: `Judgeship positions should not be partisan and judges should not be required to be affiliated with any specific political party. The Delaware law bars judges who are not affiliated with the Republican or Democrat parties from serving.`,
+        predictions: [{
+            text: "Alito will rule for Carney on the grounds that Adams does not have standing in this case, since there were judgeship positions that he could have accepted.",
+            isCorrect: true
         },
         {
-            name: "Texas v. New Mexico",
-            url: "https://www.oyez.org/cases/2020/65-orig",
-            peterOpinion: "New Mexico",
-            peterJustification: `The facts of this case are confusing, but it seems that the river master acted in good faith and had the authority to make the decisions that were made.`,
-            predictions: [{ text: "The court will rule for New Mexico, upholding the river master's decisions.", isCorrect: true }],
-            peterResult: "majority join",
-            opinions: {
-                Roberts: "majority join",
-                Thomas: "majority join",
-                Breyer: "majority join",
-                Alito: "mixed author",
-                Sotomayor: "majority join",
-                Kagan: "majority join",
-                Gorsuch: "majority join",
-                Kavanaugh: "majority author"
-            }
+            text: "The court will rule for Adams, upholding the lower courts' decision.",
+            isCorrect: false
+        }
+        ],
+        peterResult: "dissent join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "majority join",
+            Breyer: "majority author",
+            Alito: "majority join",
+            Sotomayor: "concur author",
+            Kagan: "majority join",
+            Gorsuch: "majority join",
+            Kavanaugh: "majority join"
+        }
+    },
+    {
+        name: "Texas v. New Mexico",
+        url: "https://www.oyez.org/cases/2020/65-orig",
+        peterOpinion: "New Mexico",
+        peterJustification: `The facts of this case are confusing, but it seems that the river master acted in good faith and had the authority to make the decisions that were made.`,
+        predictions: [{
+            text: "The court will rule for New Mexico, upholding the river master's decisions.",
+            isCorrect: true
+        }],
+        peterResult: "majority join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "majority join",
+            Breyer: "majority join",
+            Alito: "mixed author",
+            Sotomayor: "majority join",
+            Kagan: "majority join",
+            Gorsuch: "majority join",
+            Kavanaugh: "majority author"
+        }
+    },
+    {
+        name: "FNU Tanzin v. Tanvir",
+        url: "https://www.oyez.org/cases/2020/19-71",
+        peterOpinion: "Tanvir",
+        peterJustification: `Injunctive relief would not be helpful to the plaintiffs in this case, and FBI agents should not be be allowed to violate first and fifth amendment rights with impunity.`,
+        predictions: [{
+            text: "The court will rule for Tanvir.",
+            isCorrect: true
         },
         {
-            name: "FNU Tanzin v. Tanvir",
-            url: "https://www.oyez.org/cases/2020/19-71",
-            peterOpinion: "Tanvir",
-            peterJustification: `Injunctive relief would not be helpful to the plaintiffs in this case, and FBI agents should not be be allowed to violate first and fifth amendment rights with impunity.`,
-            predictions: [{ text: "The court will rule for Tanvir.", isCorrect: true },
-            { text: "The court will rule unanimously.", isCorrect: true }],
-            peterResult: "majority join",
-            opinions: {
-                Roberts: "majority join",
-                Thomas: "majority author",
-                Breyer: "majority join",
-                Alito: "majority join",
-                Sotomayor: "majority join",
-                Kagan: "majority join",
-                Gorsuch: "majority join",
-                Kavanaugh: "majority join"
-            }
+            text: "The court will rule unanimously.",
+            isCorrect: true
+        }
+        ],
+        peterResult: "majority join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "majority author",
+            Breyer: "majority join",
+            Alito: "majority join",
+            Sotomayor: "majority join",
+            Kagan: "majority join",
+            Gorsuch: "majority join",
+            Kavanaugh: "majority join"
+        }
+    },
+    {
+        name: "Rutledge v. Pharmaceutical Care Management Association",
+        url: "https://www.oyez.org/cases/2020/18-540",
+        peterOpinion: "Rutledge",
+        peterJustification: `The facts of this case are confusing, but it seems that the state of Arkansas has an interest in keeping smaller pharmacies solvent and should be able to regulate PBMs accordingly. Also, similar regulations by New York were permitted by a unanimous court in the case New York State Conference of Blue Cross & Blue Shield Plans v. Travelers Ins. Co.`,
+        predictions: [{
+            text: "The court will rule for Rutledge.",
+            isCorrect: true
         },
         {
-            name: "Rutledge v. Pharmaceutical Care Management Association",
-            url: "https://www.oyez.org/cases/2020/18-540",
-            peterOpinion: "Rutledge",
-            peterJustification: `The facts of this case are confusing, but it seems that the state of Arkansas has an interest in keeping smaller pharmacies solvent and should be able to regulate PBMs accordingly. Also, similar regulations by New York were permitted by a unanimous court in the case New York State Conference of Blue Cross & Blue Shield Plans v. Travelers Ins. Co.`,
-            predictions: [
-                { text: "The court will rule for Rutledge.", isCorrect: true },
-                { text: "The court will rule unanimously.", isCorrect: true }
-            ],
-            peterResult: "majority join",
-            opinions: {
-                Roberts: "majority join",
-                Thomas: "concur author",
-                Breyer: "majority join",
-                Alito: "majority join",
-                Sotomayor: "majority author",
-                Kagan: "majority join",
-                Gorsuch: "majority join",
-                Kavanaugh: "majority join"
-            }
+            text: "The court will rule unanimously.",
+            isCorrect: true
+        }
+        ],
+        peterResult: "majority join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "concur author",
+            Breyer: "majority join",
+            Alito: "majority join",
+            Sotomayor: "majority author",
+            Kagan: "majority join",
+            Gorsuch: "majority join",
+            Kavanaugh: "majority join"
+        }
+    },
+    {
+        name: "Google LLC v. Oracle America Inc.",
+        url: "https://www.oyez.org/cases/2020/18-956",
+        peterOpinion: "Google",
+        peterJustification: `Oracle's claim that not allowing copyright of Java APIs would remove the incentive to innovate in programming languages and software platorms is dubious, given the proliferation of open source software.`,
+        predictions: [{
+            text: "Breyer will rule for Google."
         },
         {
-            name: "Google LLC v. Oracle America Inc.",
-            url: "https://www.oyez.org/cases/2020/18-956",
-            peterOpinion: "Google",
-            peterJustification: `Oracle's claim that not allowing copyright of Java APIs would remove the incentive to innovate in programming languages and software platorms is dubious, given the proliferation of open source software.`,
-            predictions: [
-                { text: "Breyer will rule for Google." },
-                { text: "Kagan will rule for Google." },
-                { text: "Alito will rule for Oracle." },
-                { text: "Gorsuch will rule for Oracle." },
-                { text: "The court will rule for Oracle." }
-            ]
+            text: "Kagan will rule for Google."
         },
         {
-            name: "Ford Motor Company v. Montana Eighth Judicial District Court",
-            url: "https://www.oyez.org/cases/2020/19-368",
-            peterOpinion: "Montana Eighth Judicial District Court",
-            peterJustification: `While a smaller company from a different state that had limited unrelated business in Montana would have a valid objection, Ford has created enough roots in Montana and done enough business there such that people injured by Ford products in Montana shouldn't have to travel to another state to litigate their case.`,
-            predictions: [{ text: "The court will rule for Montana Eighth Judicial District Court." },
-            { text: "The court will rule unanimously." }]
+            text: "Alito will rule for Oracle."
         },
         {
-            name: "United States v. Briggs",
-            url: "https://www.oyez.org/cases/2020/19-108",
-            peterOpinion: "United States",
-            peterJustification: `The military code specifies that any crime punishable by death has no statute of limitations, and the same code also specifies crimes which are punishable by death. It seems more likely that the intent of the phrase "punishable by death" was to refer to crimes the code itself indicated as punishable by death, rather than to the more nebulous constitutional question of crimes that are punishable by death under the 8th amendment.`,
-            predictions: [{ text: "The court will rule for the United States.", isCorrect: true },
-            { text: "The court will rule unanimously.", isCorrect: true }],
-            peterResult: "majority join",
-            opinions: {
-                Roberts: "majority join",
-                Thomas: "majority join",
-                Breyer: "majority join",
-                Alito: "majority author",
-                Sotomayor: "majority join",
-                Kagan: "majority join",
-                Gorsuch: "concur author",
-                Kavanaugh: "majority join"
-            }
+            text: "Gorsuch will rule for Oracle."
         },
         {
-            name: "City of Chicago v. Fulton",
-            url: "https://www.oyez.org/cases/2020/19-357",
-            peterOpinion: "Fulton",
-            peterJustification: `The facts of this case are confusing, but it seems that the city was an unsecured creditor when the bankruptcy court approved of Fulton's bankruptcy plan, and doesn't have the right to maintain possession of Fulton's car.`,
-            predictions: [{ text: "The court will rule for Fulton.", isCorrect: false },
-            { text: "The court will rule unanimously.", isCorrect: true }],
-            peterResult: "dissent join",
-            opinions: {
-                Roberts: "majority join",
-                Thomas: "majority join",
-                Breyer: "majority join",
-                Alito: "majority author",
-                Sotomayor: "concur author",
-                Kagan: "majority join",
-                Gorsuch: "majority join",
-                Kavanaugh: "majority join"
-            }
+            text: "The court will rule for Oracle."
+        }
+        ]
+    },
+    {
+        name: "Ford Motor Company v. Montana Eighth Judicial District Court",
+        url: "https://www.oyez.org/cases/2020/19-368",
+        peterOpinion: "Montana Eighth Judicial District Court",
+        peterJustification: `While a smaller company from a different state that had limited unrelated business in Montana would have a valid objection, Ford has created enough roots in Montana and done enough business there such that people injured by Ford products in Montana shouldn't have to travel to another state to litigate their case.`,
+        predictions: [{
+            text: "The court will rule for Montana Eighth Judicial District Court."
         },
         {
-            name: "Torres v. Madrid",
-            url: "https://www.oyez.org/cases/2020/19-292",
-            peterOpinion: "Torres",
-            peterJustification: `Excessive use of force to attempt to seize someone can still be unreasonable and constitute a 4th amendment unreasonable search or seizure, even if the seizure is not successful.`,
-            predictions: [{ text: "The court will rule for Madrid, upholding the lower courts' decisions." },
-            { text: "The court will rule unanimously." }]
+            text: "The court will rule unanimously."
+        }
+        ]
+    },
+    {
+        name: "United States v. Briggs",
+        url: "https://www.oyez.org/cases/2020/19-108",
+        peterOpinion: "United States",
+        peterJustification: `The military code specifies that any crime punishable by death has no statute of limitations, and the same code also specifies crimes which are punishable by death. It seems more likely that the intent of the phrase "punishable by death" was to refer to crimes the code itself indicated as punishable by death, rather than to the more nebulous constitutional question of crimes that are punishable by death under the 8th amendment.`,
+        predictions: [{
+            text: "The court will rule for the United States.",
+            isCorrect: true
         },
         {
-            name: "Pereida v. Barr",
-            url: "https://www.oyez.org/cases/2020/19-438",
-            peterOpinion: "Pereida",
-            peterJustification: `When the law is ambiguous, the rule of lenity should favor the noncitizen and allow him to petition for cancellation of removal.`,
-            predictions: [{ text: "Sotomayor will rule for Pereida." },
-            { text: "The court will rule for Barr." }]
+            text: "The court will rule unanimously.",
+            isCorrect: true
+        }
+        ],
+        peterResult: "majority join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "majority join",
+            Breyer: "majority join",
+            Alito: "majority author",
+            Sotomayor: "majority join",
+            Kagan: "majority join",
+            Gorsuch: "concur author",
+            Kavanaugh: "majority join"
+        }
+    },
+    {
+        name: "City of Chicago v. Fulton",
+        url: "https://www.oyez.org/cases/2020/19-357",
+        peterOpinion: "Fulton",
+        peterJustification: `The facts of this case are confusing, but it seems that the city was an unsecured creditor when the bankruptcy court approved of Fulton's bankruptcy plan, and doesn't have the right to maintain possession of Fulton's car.`,
+        predictions: [{
+            text: "The court will rule for Fulton.",
+            isCorrect: false
         },
         {
-            name: "Salinas v. United States Railroad Retirement Board",
-            url: "https://www.oyez.org/cases/2020/19-199",
-            peterOpinion: "United States Railroad Retirement Board",
-            peterJustification: `The petitioner did not appeal in a timely manner. The Railroad Retirement Board provides an ample 4-year period for reopening cases based on new evidence, and should not be required to redeliberate decisions that were finalized 7 years prior.`,
-            predictions: [{
-                text: "The court will rule for the United States Railroad Retirement Board."
-            },
-            { text: "The court will unanimously." }]
+            text: "The court will rule unanimously.",
+            isCorrect: true
+        }
+        ],
+        peterResult: "dissent join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "majority join",
+            Breyer: "majority join",
+            Alito: "majority author",
+            Sotomayor: "concur author",
+            Kagan: "majority join",
+            Gorsuch: "majority join",
+            Kavanaugh: "majority join"
+        }
+    },
+    {
+        name: "Torres v. Madrid",
+        url: "https://www.oyez.org/cases/2020/19-292",
+        peterOpinion: "Torres",
+        peterJustification: `Excessive use of force to attempt to seize someone can still be unreasonable and constitute a 4th amendment unreasonable search or seizure, even if the seizure is not successful.`,
+        predictions: [{
+            text: "The court will rule for Madrid, upholding the lower courts' decisions."
         },
         {
-            name: "U.S. Fish and Wildlife Service v. Sierra Club",
-            url: "https://www.oyez.org/cases/2020/19-547",
-            peterOpinion: "Sierra Club",
-            peterJustification: `It seems that ruling for the government in this case could harm government transparency. Government agencies should not be able to automatically protect their documents from Freedom of Information Act requests merely by marking them as drafts.`,
-            predictions: [{
-                text: "The court will rule that at least 10 of the 16 requested records are not protected by deliberative process privelege, affirming the lower courts' ruling."
-            }]
+            text: "The court will rule unanimously."
+        }
+        ]
+    },
+    {
+        name: "Pereida v. Barr",
+        url: "https://www.oyez.org/cases/2020/19-438",
+        peterOpinion: "Pereida",
+        peterJustification: `When the law is ambiguous, the rule of lenity should favor the noncitizen and allow him to petition for cancellation of removal.`,
+        predictions: [{
+            text: "Sotomayor will rule for Pereida."
         },
         {
-            name: "Borden v. United States",
-            url: "https://www.oyez.org/cases/2020/19-5410",
-            peterOpinion: "United States",
-            peterJustification: `The goal of the Armed Career Criminal Act seems to be to increase the severity of punishments for criminals who have demonstrated a history of violent crime and thus pose a greater threat to society.
+            text: "The court will rule for Barr."
+        }
+        ]
+    },
+    {
+        name: "Salinas v. United States Railroad Retirement Board",
+        url: "https://www.oyez.org/cases/2020/19-199",
+        peterOpinion: "United States Railroad Retirement Board",
+        peterJustification: `The petitioner did not appeal in a timely manner. The Railroad Retirement Board provides an ample 4-year period for reopening cases based on new evidence, and should not be required to redeliberate decisions that were finalized 7 years prior.`,
+        predictions: [{
+            text: "The court will rule for the United States Railroad Retirement Board."
+        },
+        {
+            text: "The court will unanimously."
+        }
+        ]
+    },
+    {
+        name: "U.S. Fish and Wildlife Service v. Sierra Club",
+        url: "https://www.oyez.org/cases/2020/19-547",
+        peterOpinion: "Sierra Club",
+        peterJustification: `It seems that ruling for the government in this case could harm government transparency. Government agencies should not be able to automatically protect their documents from Freedom of Information Act requests merely by marking them as drafts.`,
+        predictions: [{
+            text: "The court will rule that at least 10 of the 16 requested records are not protected by deliberative process privelege, affirming the lower courts' ruling."
+        }]
+    },
+    {
+        name: "Borden v. United States",
+        url: "https://www.oyez.org/cases/2020/19-5410",
+        peterOpinion: "United States",
+        peterJustification: `The goal of the Armed Career Criminal Act seems to be to increase the severity of punishments for criminals who have demonstrated a history of violent crime and thus pose a greater threat to society.
             Reckless violent crimes pose the same threat to society as non-reckless violent crimes, and it seems to be within the government's interest to include them under the ACCA.<br>
             Including reckless crimes does not seem to be a big threat to the rule of lenity, since invoking the ACCA requires three prior violent crimes on top of illegally possessing a firearm as a felon.`,
-            predictions: [{
-                text: "The court will rule for the United States, upholding the same decision the two lower courts made."
-            },
-            {
-                text: "The court will rule unanimously."
-            }]
+        predictions: [{
+            text: "The court will rule for the United States, upholding the same decision the two lower courts made."
         },
         {
-            name: "Jones v. Mississippi",
-            url: "https://www.oyez.org/cases/2020/18-1259",
-            peterOpinion: "Jones",
-            peterJustification: `Since life imprisonment without parole is a serious punishment, especially for a juvenile, 
+            text: "The court will rule unanimously."
+        }
+        ]
+    },
+    {
+        name: "Jones v. Mississippi",
+        url: "https://www.oyez.org/cases/2020/18-1259",
+        peterOpinion: "Jones",
+        peterJustification: `Since life imprisonment without parole is a serious punishment, especially for a juvenile, 
             it is reasonable to require a judge imposing such a sentence to explicitly justify why they found the defendant to be permanently incorrigible, and seems to be required by Miller v. Alabama and Montgomery v. Louisiana precedent.`,
-            predictions: [
-                { text: "Thomas will rule for Mississippi becase he dissented in both Miller v. Alabama and Montgomery v. Louisiana." },
-                { text: `Alito will rule for Mississippi, as above. Also, during the argument, he seemed to cast doubt on the validity of the case because it is "light years away" from the original intent of the Eigth Amendment and indicated that whether or not someone is capable of redemption was more of a philosophical question than a legal question.` },
-                { text: `Kavanaugh will rule for Mississippi because in the oral argument he indicated that any judge who sentences a juvenile to life imprisonment would most likely have considered whether or not they were permanently incorrigible, and judges are usually presumed to be aware of the law and to have weighed all of the relevant factors even if they don't explicitly mention it in their ruling.` },
-                { text: `Breyer will rule for Jones because he was in the majority in both Miller v. Alabama and Montgomery v. Louisiana.` },
-                { text: `Sotomayor will rule for Jones, as above.` },
-                { text: `Kagan will rule for Jones, as above.` },
-            ],
-            justiceOpinions: []
+        predictions: [{
+            text: "Thomas will rule for Mississippi becase he dissented in both Miller v. Alabama and Montgomery v. Louisiana."
         },
         {
-            name: "Fulton v. City of Philadelphia",
-            url: "https://www.oyez.org/cases/2020/19-123",
-            peterOpinion: "City of Philadelphia",
-            peterJustification: `The petitioners concede that a religious organization contracting with the city would not be allowed to deny couples to be foster parents based on a religious objection to interracial marriage.<br>
+            text: `Alito will rule for Mississippi, as above. Also, during the argument, he seemed to cast doubt on the validity of the case because it is "light years away" from the original intent of the Eigth Amendment and indicated that whether or not someone is capable of redemption was more of a philosophical question than a legal question.`
+        },
+        {
+            text: `Kavanaugh will rule for Mississippi because in the oral argument he indicated that any judge who sentences a juvenile to life imprisonment would most likely have considered whether or not they were permanently incorrigible, and judges are usually presumed to be aware of the law and to have weighed all of the relevant factors even if they don't explicitly mention it in their ruling.`
+        },
+        {
+            text: `Breyer will rule for Jones because he was in the majority in both Miller v. Alabama and Montgomery v. Louisiana.`
+        },
+        {
+            text: `Sotomayor will rule for Jones, as above.`
+        },
+        {
+            text: `Kagan will rule for Jones, as above.`
+        },
+        ],
+        justiceOpinions: []
+    },
+    {
+        name: "Fulton v. City of Philadelphia",
+        url: "https://www.oyez.org/cases/2020/19-123",
+        peterOpinion: "City of Philadelphia",
+        peterJustification: `The petitioners concede that a religious organization contracting with the city would not be allowed to deny couples to be foster parents based on a religious objection to interracial marriage.<br>
             In recent years, cases like Obergefell v. Hodges and Bostock v. Clayton County seem to indicate that the government has a compelling interest in protecting against discrimination based on sexual orientation, similar to its interest in protecting against discrimination based on other protected classes such as race, religion, sex, or national origin.`,
-            predictions: [
-                { text: "Alito will rule for Fulton, since he believes sincere religious opposition to same-sex couples should be accommodated for in a pluralistic society. Alito has a track record of dissenting in related cases." },
-                { text: "Thomas will rule for Fulton, as above." },
-                { text: "Kavanaugh will rule for Fulton. In the oral arguments he mentioned that Catholic Social Services would refer same-sex couples to a different agency, and in practice no same-sex couples have sought to be foster parents through CSS, and thus in practice there is no compelling interest for the government to coerce CSS into going against their religious convictions." },
-                { text: "Barrett will rule for Fulton, since (1) she was a clerk for Scalia, who has a similar track record on related cases as Alito and Thomas, and (2) she is Catholic and more likely to sympathize with Catholic Social Services." },
-                { text: "Gorsuch will rule for City of Philadelphia, since he has a track record for deciding to protect LGBT rights in related cases." },
-                { text: "Breyer will rule for City of Philadelphia, as above." },
-                { text: "Sotomayor will rule for City of Philadelphia, as above." },
-                { text: "Kagan will rule for City of Philadelphia, as above." },
-            ],
-            justiceOpinions: []
+        predictions: [{
+            text: "Alito will rule for Fulton, since he believes sincere religious opposition to same-sex couples should be accommodated for in a pluralistic society. Alito has a track record of dissenting in related cases."
         },
         {
-            name: "Brownback v. King",
-            url: "https://www.oyez.org/cases/2020/19-546",
-            peterOpinion: "King",
-            peterJustification: `Ruling for Brownback would prevent any opportunity of relief for King, and would do so on purely jurisdictional grounds, not allowing the merits of the case to be considered.`,
-            predictions: [
-                { text: "Alito will rule for Brownback." },
-                { text: "Kavanaugh will rule for Brownback." },
-                { text: "Gorsuch will rule for Brownback." },
-                { text: "Thomas will rule for Brownback." },
-                { text: "Sotomayor will rule for King." },
-                { text: "Kagan will rule for King." },
-                { text: "The court will rule for Brownback." }
-            ]
+            text: "Thomas will rule for Fulton, as above."
         },
         {
-            name: "Niz-Chavez v. Barr",
-            url: "https://www.oyez.org/cases/2020/19-863",
-            peterOpinion: "Niz-Chavez",
-            peterJustification: `The text of §1229(a) defines "written notice" as 'a "notice to appear"' including the article "a", which indicates that there should be one notice, not multiple fragments of notices sent over time.`,
-            predictions: [
-                { text: "Alito will rule for Barr, since he was the lone dissenter in Pereira v. Sessions, where the defendant had a stronger argument than in this case." },
-                { text: "Gorsuch will rule for Niz-Chavez." },
-                { text: "Sotomayor will rule for Niz-Chavez." },
-                { text: "Kagan will rule for Niz-Chavez." },
-                { text: "Breyer will rule for Niz-Chavez." },
-                { text: "The court will rule for Niz-Chavez." },
-            ]
+            text: "Kavanaugh will rule for Fulton. In the oral arguments he mentioned that Catholic Social Services would refer same-sex couples to a different agency, and in practice no same-sex couples have sought to be foster parents through CSS, and thus in practice there is no compelling interest for the government to coerce CSS into going against their religious convictions."
         },
         {
-            name: "California v. Texas",
-            url: "https://www.oyez.org/cases/2020/19-840",
-            peterOpinion: "California",
-            peterJustification: "The court ruled in National Federation of Independent Business v. Sebelius that the ACA individual mandate was constitutional under the Taxing and Spending Clause and thus that the tax penalty was not unconstitutionally coercive. A zero tax penalty is obviously less coercive than a non-zero tax penalty, so if congress has the authority to legislate the individual mandate with a penalty, it certainly has the authority to do so without a penalty. If congress wanted to repeal the ACA entirely, it should have done so, rather than zeroing the tax penalty and hoping that the courts would finish the job for them.",
-            predictions: [
-                { text: "Alito will rule for Texas, since he dissented in National Federation of Independent Business v. Sebelius and believes the ACA is unconstitutional." },
-                { text: "Thomas will rule for Texas, as above." },
-                { text: "Kavanaugh will rule for Texas." },
-                { text: "Roberts will rule for California." },
-                { text: "Breyer will rule for California." },
-                { text: "Sotomayor will rule for California" },
-                { text: "Kagan will rule for California." }
-            ]
+            text: "Barrett will rule for Fulton, since (1) she was a clerk for Scalia, who has a similar track record on related cases as Alito and Thomas, and (2) she is Catholic and more likely to sympathize with Catholic Social Services."
         },
         {
-            name: "Van Buren v. United States",
-            url: "https://www.oyez.org/cases/2020/19-783",
-            peterOpinion: "Van Buren",
-            peterJustification: "The text of the statute doesn't mention improper use, which is something that is often mentioned explicitly by other statutes, so it seems that authorized but improper use is not prohibited by the CFAA (although it is likely prohibited by other laws).",
-            predictions: [
-                { text: "The court will rule for Van Buren." },
-                { text: "Gorsuch will rule for Van Buren." },
-                { text: "Sotomayor will rule for Van Buren." }
-            ]
+            text: "Gorsuch will rule for City of Philadelphia, since he has a track record for deciding to protect LGBT rights in related cases."
         },
         {
-            name: "Trump v. New York",
-            url: "https://www.oyez.org/cases/2020/20-366",
-            peterOpinion: "New York",
-            peterJustification: "The constitution says that the census enumeration should be the \"number of free persons\" and does not exclude undocumented immigrants, and including undocumented immigrants is longstanding precedent in US censuses.",
-            predictions: [
-                { text: "The court will rule for New York.", isCorrect: false },
-                { text: "Sotomayor will rule for New York.", isCorrect: true },
-                { text: "Gorsuch will rule for New York.", isCorrect: false },
-                { text: "Barrett will rule for New York.", isCorrect: false }
-            ],
-            peterResult: "dissent join",
-            opinions: {
-                Roberts: "majority join",
-                Thomas: "majority join",
-                Breyer: "dissent author",
-                Alito: "majority join",
-                Sotomayor: "dissent join",
-                Kagan: "dissent join",
-                Gorsuch: "majority join",
-                Kavanaugh: "majority join",
-                Barrett: "majority join"
-            }
+            text: "Breyer will rule for City of Philadelphia, as above."
         },
         {
-            name: "CIC Services, LLC v. Internal Revenue Service",
-            url: "https://www.oyez.org/cases/2020/19-930",
-            peterOpinion: "CIC Services, LLC",
-            peterJustification: "The facts of this case are confusing, but it seems that CIC should be allowed to have injunctive relief when the IRS publishes an illegal notice.",
-            predictions: [
-                { text: "The court will rule for CIC Services." },
-                { text: "The court will rule unanimously." }
-            ]
+            text: "Sotomayor will rule for City of Philadelphia, as above."
         },
         {
-            name: "Nestlé USA, Inc. v. Doe I",
-            url: "https://www.oyez.org/cases/2020/19-416",
-            peterOpinion: "Doe I",
-            peterJustification: "U.S. corporations should be held liable for taking advantage of supply chains that involve child slavery.",
-            predictions: [
-                { text: "The court will rule for Nestlé USA, Inc." },
-                { text: "The court will rule unanimously." }
-            ]
+            text: "Kagan will rule for City of Philadelphia, as above."
+        },
+        ],
+        justiceOpinions: []
+    },
+    {
+        name: "Brownback v. King",
+        url: "https://www.oyez.org/cases/2020/19-546",
+        peterOpinion: "King",
+        peterJustification: `Ruling for Brownback would prevent any opportunity of relief for King, and would do so on purely jurisdictional grounds, not allowing the merits of the case to be considered.`,
+        predictions: [{
+            text: "Alito will rule for Brownback."
         },
         {
-            name: "Edwards v. Vannoy",
-            url: "https://www.oyez.org/cases/2020/19-5807",
-            peterOpinion: "Edwards",
-            peterJustification: "The 2020 Ramos v. Louisiana held that convicting based on a non-unanimous jury verdicts is unconstitutional under the Sixth Amendment. Since the Sixth Amendment predates Edward's 2010 conviction, the Ramos v. Louisian decision should apply retroactively.",
-            predictions: [
-                { text: "The court will rule for Edwards." },
-                { text: "Gorsuch will rule for Edwards, since he ruled for Ramos in Ramos v. Louisiana." },
-                { text: "Breyer will rule for Edwards, as above." },
-                { text: "Sotomayor will rule for Edwards, as above." },
-                { text: "Kavanaugh will rule for Edwards, as above." },
-                { text: "Thomas will rule for Edwards, as above." },
-                { text: "Kagan will rule for Vannoy, since she dissented in Ramos v. Louisiana." },
-                { text: "Alito will rule for Vannoy, as above." },
-                { text: "Roberts will rule for Vannoy, as above." },
-            ]
+            text: "Kavanaugh will rule for Brownback."
         },
         {
-            name: "Republic of Hungary v. Simon",
-            url: "https://www.oyez.org/cases/2020/18-1447",
-            peterOpinion: "Hungary",
-            peterJustification: "The crime did not take place in the US and neither the plaintiff or the defendant had any connection to the US at the time of the crime, so it is puzzling how this case would be subject to US jurisdiction.",
-            predictions: [
-                { text: "The court will rule for Hungary." },
-                { text: "The court will rule unanimously." }
-            ]
+            text: "Gorsuch will rule for Brownback."
         },
         {
-            name: "Federal Republic of Germany v. Philipp",
-            url: "https://www.oyez.org/cases/2020/19-351",
-            peterOpinion: "Germany",
-            peterJustification: "The crime did not take place in the US and neither the plaintiff or the defendant had any connection to the US at the time of the crime, so it is puzzling how this case would be subject to US jurisdiction.",
-            predictions: [
-                { text: "The court will rule for Germany." },
-                { text: "The court will rule unanimously." }
-            ]
+            text: "Thomas will rule for Brownback."
         },
         {
-            name: "Facebook, Inc. v. Duguid",
-            url: "https://www.oyez.org/cases/2020/19-511",
-            peterOpinion: "Facebook",
-            peterJustification: `Facebook's interpretation of the law seems more credible because the syntax of
+            text: "Sotomayor will rule for King."
+        },
+        {
+            text: "Kagan will rule for King."
+        },
+        {
+            text: "The court will rule for Brownback."
+        }
+        ]
+    },
+    {
+        name: "Niz-Chavez v. Barr",
+        url: "https://www.oyez.org/cases/2020/19-863",
+        peterOpinion: "Niz-Chavez",
+        peterJustification: `The text of §1229(a) defines "written notice" as 'a "notice to appear"' including the article "a", which indicates that there should be one notice, not multiple fragments of notices sent over time.`,
+        predictions: [{
+            text: "Alito will rule for Barr, since he was the lone dissenter in Pereira v. Sessions, where the defendant had a stronger argument than in this case."
+        },
+        {
+            text: "Gorsuch will rule for Niz-Chavez."
+        },
+        {
+            text: "Sotomayor will rule for Niz-Chavez."
+        },
+        {
+            text: "Kagan will rule for Niz-Chavez."
+        },
+        {
+            text: "Breyer will rule for Niz-Chavez."
+        },
+        {
+            text: "The court will rule for Niz-Chavez."
+        },
+        ]
+    },
+    {
+        name: "California v. Texas",
+        url: "https://www.oyez.org/cases/2020/19-840",
+        peterOpinion: "California",
+        peterJustification: "The court ruled in National Federation of Independent Business v. Sebelius that the ACA individual mandate was constitutional under the Taxing and Spending Clause and thus that the tax penalty was not unconstitutionally coercive. A zero tax penalty is obviously less coercive than a non-zero tax penalty, so if congress has the authority to legislate the individual mandate with a penalty, it certainly has the authority to do so without a penalty. If congress wanted to repeal the ACA entirely, it should have done so, rather than zeroing the tax penalty and hoping that the courts would finish the job for them.",
+        predictions: [{
+            text: "Alito will rule for Texas, since he dissented in National Federation of Independent Business v. Sebelius and believes the ACA is unconstitutional."
+        },
+        {
+            text: "Thomas will rule for Texas, as above."
+        },
+        {
+            text: "Kavanaugh will rule for Texas."
+        },
+        {
+            text: "Roberts will rule for California."
+        },
+        {
+            text: "Breyer will rule for California."
+        },
+        {
+            text: "Sotomayor will rule for California"
+        },
+        {
+            text: "Kagan will rule for California."
+        }
+        ]
+    },
+    {
+        name: "Van Buren v. United States",
+        url: "https://www.oyez.org/cases/2020/19-783",
+        peterOpinion: "Van Buren",
+        peterJustification: "The text of the statute doesn't mention improper use, which is something that is often mentioned explicitly by other statutes, so it seems that authorized but improper use is not prohibited by the CFAA (although it is likely prohibited by other laws).",
+        predictions: [{
+            text: "The court will rule for Van Buren."
+        },
+        {
+            text: "Gorsuch will rule for Van Buren."
+        },
+        {
+            text: "Sotomayor will rule for Van Buren."
+        }
+        ]
+    },
+    {
+        name: "Trump v. New York",
+        url: "https://www.oyez.org/cases/2020/20-366",
+        peterOpinion: "New York",
+        peterJustification: "The constitution says that the census enumeration should be the \"number of free persons\" and does not exclude undocumented immigrants, and including undocumented immigrants is longstanding precedent in US censuses.",
+        predictions: [{
+            text: "The court will rule for New York.",
+            isCorrect: false
+        },
+        {
+            text: "Sotomayor will rule for New York.",
+            isCorrect: true
+        },
+        {
+            text: "Gorsuch will rule for New York.",
+            isCorrect: false
+        },
+        {
+            text: "Barrett will rule for New York.",
+            isCorrect: false
+        }
+        ],
+        peterResult: "dissent join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "majority join",
+            Breyer: "dissent author",
+            Alito: "majority join",
+            Sotomayor: "dissent join",
+            Kagan: "dissent join",
+            Gorsuch: "majority join",
+            Kavanaugh: "majority join",
+            Barrett: "majority join"
+        }
+    },
+    {
+        name: "CIC Services, LLC v. Internal Revenue Service",
+        url: "https://www.oyez.org/cases/2020/19-930",
+        peterOpinion: "CIC Services, LLC",
+        peterJustification: "The facts of this case are confusing, but it seems that CIC should be allowed to have injunctive relief when the IRS publishes an illegal notice.",
+        predictions: [{
+            text: "The court will rule for CIC Services."
+        },
+        {
+            text: "The court will rule unanimously."
+        }
+        ]
+    },
+    {
+        name: "Nestlé USA, Inc. v. Doe I",
+        url: "https://www.oyez.org/cases/2020/19-416",
+        peterOpinion: "Doe I",
+        peterJustification: "U.S. corporations should be held liable for taking advantage of supply chains that involve child slavery.",
+        predictions: [{
+            text: "The court will rule for Nestlé USA, Inc."
+        },
+        {
+            text: "The court will rule unanimously."
+        }
+        ]
+    },
+    {
+        name: "Edwards v. Vannoy",
+        url: "https://www.oyez.org/cases/2020/19-5807",
+        peterOpinion: "Edwards",
+        peterJustification: "The 2020 Ramos v. Louisiana held that convicting based on a non-unanimous jury verdicts is unconstitutional under the Sixth Amendment. Since the Sixth Amendment predates Edward's 2010 conviction, the Ramos v. Louisian decision should apply retroactively.",
+        predictions: [{
+            text: "The court will rule for Edwards."
+        },
+        {
+            text: "Gorsuch will rule for Edwards, since he ruled for Ramos in Ramos v. Louisiana."
+        },
+        {
+            text: "Breyer will rule for Edwards, as above."
+        },
+        {
+            text: "Sotomayor will rule for Edwards, as above."
+        },
+        {
+            text: "Kavanaugh will rule for Edwards, as above."
+        },
+        {
+            text: "Thomas will rule for Edwards, as above."
+        },
+        {
+            text: "Kagan will rule for Vannoy, since she dissented in Ramos v. Louisiana."
+        },
+        {
+            text: "Alito will rule for Vannoy, as above."
+        },
+        {
+            text: "Roberts will rule for Vannoy, as above."
+        },
+        ]
+    },
+    {
+        name: "Republic of Hungary v. Simon",
+        url: "https://www.oyez.org/cases/2020/18-1447",
+        peterOpinion: "Hungary",
+        peterJustification: "The crime did not take place in the US and neither the plaintiff or the defendant had any connection to the US at the time of the crime, so it is puzzling how this case would be subject to US jurisdiction.",
+        predictions: [{
+            text: "The court will rule for Hungary."
+        },
+        {
+            text: "The court will rule unanimously."
+        }
+        ]
+    },
+    {
+        name: "Federal Republic of Germany v. Philipp",
+        url: "https://www.oyez.org/cases/2020/19-351",
+        peterOpinion: "Germany",
+        peterJustification: "The crime did not take place in the US and neither the plaintiff or the defendant had any connection to the US at the time of the crime, so it is puzzling how this case would be subject to US jurisdiction.",
+        predictions: [{
+            text: "The court will rule for Germany."
+        },
+        {
+            text: "The court will rule unanimously."
+        }
+        ]
+    },
+    {
+        name: "Facebook, Inc. v. Duguid",
+        url: "https://www.oyez.org/cases/2020/19-511",
+        peterOpinion: "Facebook",
+        peterJustification: `Facebook's interpretation of the law seems more credible because the syntax of
             "the capacity to store or produce telephone numbers to be called, using a random or sequential number generator" seems to indicate that the qualifier "using a random or sequential number generator" applies to both "store" and "produce".
             Otherwise, it would outlaw merely storing telephone numbers to be dialed, which would an overly broad and would include speed dial and other automations that people use on a daily basis. 
             The plaintiff's argument that it would not apply to dialing that involves human intervention would introduce a very fuzzy standard that would be difficult to adjudicate, in addition to not being mentioned anywhere in the text of the law.`,
-            predictions: [{ text: "The court will rule for Facebook." },
-            { text: "The court will rule unanimously." }]
+        predictions: [{
+            text: "The court will rule for Facebook."
         },
         {
-            name: "Henry Schein Inc. v. Archer and White Sales Inc.",
-            url: "https://www.oyez.org/cases/2020/19-963",
-            peterOpinion: "Archer and White Sales Inc.",
-            peterJustification: "The facts of this case are confusing, but it seems that an arbitrator has a vested interest in legal questions of whether or not a dispute is arbitrable, and seems unreasonable to compel the party that disputes the arbitrability of a case to submit to whatever the arbitrator says about arbitrability.",
-            predictions: [{ text: "The court will rule unanimously." },
-            { text: "The court will rule for Henry Schein Inc." }]
+            text: "The court will rule unanimously."
+        }
+        ]
+    },
+    {
+        name: "Henry Schein Inc. v. Archer and White Sales Inc.",
+        url: "https://www.oyez.org/cases/2020/19-963",
+        peterOpinion: "Archer and White Sales Inc.",
+        peterJustification: "The facts of this case are confusing, but it seems that an arbitrator has a vested interest in legal questions of whether or not a dispute is arbitrable, and seems unreasonable to compel the party that disputes the arbitrability of a case to submit to whatever the arbitrator says about arbitrability.",
+        predictions: [{
+            text: "The court will rule unanimously."
         },
         {
-            name: "Collins v. Mnuchin",
-            url: "https://www.oyez.org/cases/2020/19-422",
-            peterOpinion: "",
-            peterJustification: "I was not able to understand this case enough to form an opinion, even after listening to the arguments twice.",
-            predictions: []
+            text: "The court will rule for Henry Schein Inc."
+        }
+        ]
+    },
+    {
+        name: "Collins v. Mnuchin",
+        url: "https://www.oyez.org/cases/2020/19-422",
+        peterOpinion: "",
+        peterJustification: "I was not able to understand this case enough to form an opinion, even after listening to the arguments twice.",
+        predictions: []
+    },
+    {
+        name: "Pham v. Guzman Chavez",
+        url: "https://www.oyez.org/cases/2020/19-897",
+        peterOpinion: "Chavez",
+        peterJustification: "If the alien is not able to return to the designated country because of credible fear of persecution or torture, the removal decision cannot be considered final unless the fear is adjudicated or a third country is found.",
+        predictions: [{
+            text: "The court will rule for Pham."
+        }, {
+            text: "Breyer will for Chavez."
+        }, {
+            text: "Kavanaugh will rule for Pham."
+        }, {
+            text: "Barrett will rule for Pham."
+        }, {
+            text: "Thomas will rule for Pham."
+        }, {
+            text: "Alito will rule for Pham."
+        }]
+    },
+    {
+        name: "Uzuegbunam v. Preczewski",
+        url: "https://www.oyez.org/cases/2020/19-968",
+        peterOpinion: "Uzuegbunam",
+        peterJustification: "The fact that the university changed their policy doesn't resolve the first amendment violations that occured, and the victims should be allowed to seek damages, even if they request a small amount.",
+        predictions: [{
+            text: "Roberts will rule for Preczewski."
+        }, {
+            text: "Thomas will rule for Preczewski."
+        }, {
+            text: "Breyer will rule for Uzuegbunam."
+        }, {
+            text: "Kagan will rule for Uzuegbunam."
+        }, {
+            text: "Sotomayor will rule for Uzuegbunam."
+        }]
+    },
+    {
+        name: "AMG Capital Management, LLC v. Federal Trade Commission",
+        url: "https://www.oyez.org/cases/2020/19-508",
+        peterOpinion: "Federal Trade Commission",
+        peterJustification: "The precedent from lower courts seems to authorize the FTC to demand monetary relief to victims of deceptive commercial actions.",
+        predictions: [{
+            text: "The court will rule for the Federal Trade Commission."
+        }, {
+            text: "Breyer will rule for AMG Capital Management."
+        }, {
+            text: "Barrett will rule for the Federal Trade Commission."
+        }]
+    },
+    {
+        name: "FCC v. Prometheus Radio Project",
+        url: "https://www.oyez.org/cases/2020/19-1231",
+        peterOpinion: "",
+        peterJustification: "",
+        predictions: []
+    },
+    {
+        name: "BP P.L.C. v. Mayor and City Council of Baltimore",
+        url: "https://www.oyez.org/cases/2020/19-1189",
+        peterOpinion: "Mayor and City Council of Baltimore",
+        peterJustification: "An appelate court should be able to review any relevant issue from a lower court's order.",
+        predictions: [{
+            text: "The court will rule unanimously."
         },
         {
-            name: "Pham v. Guzman Chavez",
-            url: "https://www.oyez.org/cases/2020/19-897",
-            peterOpinion: "Chavez",
-            peterJustification: "If the alien is not able to return to the designated country because of credible fear of persecution or torture, the removal decision cannot be considered final unless the fear is adjudicated or a third country is found.",
-            predictions: [{
-                text: "The court will rule for Pham."
-            }, {
-                text: "Breyer will for Chavez."
-            }, {
-                text: "Kavanaugh will rule for Pham."
-            }, {
-                text: "Barrett will rule for Pham."
-            }, {
-                text: "Thomas will rule for Pham."
-            }, {
-                text: "Alito will rule for Pham."
-            }]
-        },
-        {
-            name: "Uzuegbunam v. Preczewski",
-            url: "https://www.oyez.org/cases/2020/19-968",
-            peterOpinion: "Uzuegbunam",
-            peterJustification: "The fact that the university changed their policy doesn't resolve the first amendment violations that occured, and the victims should be allowed to seek damages, even if they request a small amount.",
-            predictions: [{
-                text: "Roberts will rule for Preczewski."
-            }, {
-                text: "Thomas will rule for Preczewski."
-            }, {
-                text: "Breyer will rule for Uzuegbunam."
-            }, {
-                text: "Kagan will rule for Uzuegbunam."
-            }, {
-                text: "Sotomayor will rule for Uzuegbunam."
-            }]
-        },
-        {
-            name: "AMG Capital Management, LLC v. Federal Trade Commission",
-            url: "https://www.oyez.org/cases/2020/19-508",
-            peterOpinion: "AMG Capital Management, LLC",
-            peterJustification: "The text of the FTC act authorizes the FTC to bring suit to a district court to order an injunction, but does not authorize them to enforce monetary relief.",
-            predictions: [{
-                text: "The court will rule for AMG Capital Management, LLC."
-            }, {
-                text: "The court will rule unanimously."
-            }]
-        },
-        {
-            name: "FCC v. Prometheus Radio Project",
-            url: "https://www.oyez.org/cases/2020/19-1231",
-            peterOpinion: "",
-            peterJustification: "",
-            predictions: []
-        },
-        {
-            name: "BP P.L.C. v. Mayor and City Council of Baltimore",
-            url: "https://www.oyez.org/cases/2020/19-1189",
-            peterOpinion: "",
-            peterJustification: "",
-            predictions: []
-        }];
+            text: "The court will rule for Mayor and City Council of Baltimore."
+        }]
+    }
+    ];
 
     const table = document.getElementById("2020");
     const headerRow = document.createElement("tr");
