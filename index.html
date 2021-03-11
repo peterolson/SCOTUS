@@ -300,17 +300,30 @@
         ]
     },
     {
-        name: "Pereida v. Barr",
+        name: "Pereida v. Wilkinson",
         url: "https://www.oyez.org/cases/2020/19-438",
         peterOpinion: "Pereida",
         peterJustification: `When the law is ambiguous, the rule of lenity should favor the noncitizen and allow him to petition for cancellation of removal.`,
+        peterResult: "dissent join",
         predictions: [{
-            text: "Sotomayor will rule for Pereida."
+            text: "Sotomayor will rule for Pereida.",
+            isCorrect: true
         },
         {
-            text: "The court will rule for Barr."
+            text: "The court will rule for Wilkinson.",
+            isCorrect: true
         }
-        ]
+        ],
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "majority join",
+            Breyer: "dissent author",
+            Alito: "majority join",
+            Sotomayor: "dissent join",
+            Kagan: "dissent join",
+            Gorsuch: "majority author",
+            Kavanaugh: "majority join"
+        }
     },
     {
         name: "Salinas v. United States Railroad Retirement Board",
@@ -345,8 +358,21 @@
         peterOpinion: "Sierra Club",
         peterJustification: `It seems that ruling for the government in this case could harm government transparency. Government agencies should not be able to automatically protect their documents from Freedom of Information Act requests merely by marking them as drafts.`,
         predictions: [{
-            text: "The court will rule that at least 10 of the 16 requested records are not protected by deliberative process privelege, affirming the lower courts' ruling."
-        }]
+            text: "The court will rule that at least 10 of the 16 requested records are not protected by deliberative process privelege, affirming the lower courts' ruling.",
+            isCorrect: false
+        }],
+        peterResult: "dissent join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "majority join",
+            Breyer: "dissent author",
+            Alito: "majority join",
+            Sotomayor: "dissent join",
+            Kagan: "majority join",
+            Gorsuch: "majority join",
+            Kavanaugh: "majority join",
+            Barrett: "majority author"
+        }
     },
     {
         name: "Borden v. United States",
@@ -760,16 +786,33 @@
         peterOpinion: "Uzuegbunam",
         peterJustification: "The fact that the university changed their policy doesn't resolve the first amendment violations that occured, and the victims should be allowed to seek damages, even if they request a small amount.",
         predictions: [{
-            text: "Roberts will rule for Preczewski."
+            text: "Roberts will rule for Preczewski.",
+            isCorrect: true
         }, {
-            text: "Thomas will rule for Preczewski."
+            text: "Thomas will rule for Preczewski.",
+            isCorrect: false
         }, {
-            text: "Breyer will rule for Uzuegbunam."
+            text: "Breyer will rule for Uzuegbunam.",
+            isCorrect: true
         }, {
-            text: "Kagan will rule for Uzuegbunam."
+            text: "Kagan will rule for Uzuegbunam.",
+            isCorrect: true
         }, {
-            text: "Sotomayor will rule for Uzuegbunam."
-        }]
+            text: "Sotomayor will rule for Uzuegbunam.",
+            isCorrect: true
+        }],
+        peterResult: "majority join",
+        opinions: {
+            Roberts: "dissent author",
+            Thomas: "majority author",
+            Breyer: "majority join",
+            Alito: "majority join",
+            Sotomayor: "majority join",
+            Kagan: "majority join",
+            Gorsuch: "majority join",
+            Kavanaugh: "majority join",
+            Barrett: "majority join"
+        }
     },
     {
         name: "AMG Capital Management, LLC v. Federal Trade Commission",
@@ -822,13 +865,10 @@
     {
         name: "Wilkinson v. Dai",
         url: "https://www.oyez.org/cases/2020/19-1155",
-        peterOpinion: "",
-        peterJustification: "",
+        peterOpinion: "Dai",
+        peterJustification: "There is not a justiciable distinction between 'credible' and 'persuasive'. The petitioner's claims that the denial was based on non-credibility-related reasoning, but raises issues that question the credibility of Dai's claims (e.g. Dai's wife willingly returning to China). It's not too much to ask the immigration judge to explicitly indicate whether or not they found Dai's testimony to lack credibility.",
         predictions: [{
-            text: ""
-        },
-        {
-            text: ""
+            text: "The court will rule for Dai."
         }]
     },
     {
@@ -848,7 +888,49 @@
         }, {
             text: "Kavanaugh will rule for California."
         }]
-    }
+    },
+    {
+        name: "United States v. Arthrex, Inc.",
+        url: "https://www.oyez.org/cases/2020/19-1434",
+        peterOpinion: "",
+        peterJustification: "",
+        predictions: [{
+            text: ""
+        },
+        {
+            text: ""
+        }]
+    },
+    {
+        name: "Carr v. Saul",
+        url: "https://www.oyez.org/cases/2020/19-1442",
+        peterOpinion: "Carr",
+        peterJustification: "Carr should have the opportunity to have his case reviewed by a constitutionally appointed judge. Requiring him to raise this issue during a specific stage seems like an arbitrary burden.",
+        predictions: [{
+            text: "The court will rule for Carr."
+        },
+        {
+            text: "The court will rule unanimously."
+        }]
+    },
+    {
+        name: "Brnovich v. Democratic National Committee",
+        url: "https://www.oyez.org/cases/2020/19-1257",
+        peterOpinion: "Democratic National Committee",
+        peterJustification: "There is no evidence that Arizona's change in voting policy actually served to reduce voter fraud, and added unnecessary obstacles to voting that did not exist pre-2016.",
+        predictions: [{
+            text: "Sotomayor will rule for Democratic National Committee."
+        },
+        {
+            text: "Kagan will rule for Democratic National Committee."
+        },
+        {
+            text: "Breyer will rule for Democratic National Committee."
+        },
+        {
+            text: "The court will rule for Brnovich."
+        }]
+    },
     ];
 
     const table = document.getElementById("2020");
