@@ -438,25 +438,42 @@
         peterJustification: `Since life imprisonment without parole is a serious punishment, especially for a juvenile, 
             it is reasonable to require a judge imposing such a sentence to explicitly justify why they found the defendant to be permanently incorrigible, and seems to be required by Miller v. Alabama and Montgomery v. Louisiana precedent.`,
         predictions: [{
-            text: "Thomas will rule for Mississippi becase he dissented in both Miller v. Alabama and Montgomery v. Louisiana."
+            text: "Thomas will rule for Mississippi becase he dissented in both Miller v. Alabama and Montgomery v. Louisiana.",
+            isCorrect: true
         },
         {
-            text: `Alito will rule for Mississippi, as above. Also, during the argument, he seemed to cast doubt on the validity of the case because it is "light years away" from the original intent of the Eigth Amendment and indicated that whether or not someone is capable of redemption was more of a philosophical question than a legal question.`
+            text: `Alito will rule for Mississippi, as above. Also, during the argument, he seemed to cast doubt on the validity of the case because it is "light years away" from the original intent of the Eigth Amendment and indicated that whether or not someone is capable of redemption was more of a philosophical question than a legal question.`,
+            isCorrect: true
         },
         {
-            text: `Kavanaugh will rule for Mississippi because in the oral argument he indicated that any judge who sentences a juvenile to life imprisonment would most likely have considered whether or not they were permanently incorrigible, and judges are usually presumed to be aware of the law and to have weighed all of the relevant factors even if they don't explicitly mention it in their ruling.`
+            text: `Kavanaugh will rule for Mississippi because in the oral argument he indicated that any judge who sentences a juvenile to life imprisonment would most likely have considered whether or not they were permanently incorrigible, and judges are usually presumed to be aware of the law and to have weighed all of the relevant factors even if they don't explicitly mention it in their ruling.`,
+            isCorrect: true
         },
         {
-            text: `Breyer will rule for Jones because he was in the majority in both Miller v. Alabama and Montgomery v. Louisiana.`
+            text: `Breyer will rule for Jones because he was in the majority in both Miller v. Alabama and Montgomery v. Louisiana.`,
+            isCorrect: true
         },
         {
-            text: `Sotomayor will rule for Jones, as above.`
+            text: `Sotomayor will rule for Jones, as above.`,
+            isCorrect: true
         },
         {
-            text: `Kagan will rule for Jones, as above.`
+            text: `Kagan will rule for Jones, as above.`,
+            isCorrect: true
         },
         ],
-        justiceOpinions: []
+        peterResult: "dissent join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "concur author",
+            Breyer: "dissent join",
+            Alito: "majority join",
+            Sotomayor: "dissent author",
+            Kagan: "dissent join",
+            Gorsuch: "majority join",
+            Kavanaugh: "majority author",
+            Barrett: "majority join"
+        }
     },
     {
         name: "Fulton v. City of Philadelphia",
@@ -876,12 +893,27 @@
         peterOpinion: "Federal Trade Commission",
         peterJustification: "The precedent from lower courts seems to authorize the FTC to demand monetary relief to victims of deceptive commercial actions.",
         predictions: [{
-            text: "The court will rule for the Federal Trade Commission."
+            text: "The court will rule for the Federal Trade Commission.",
+            isCorrect: false
         }, {
-            text: "Breyer will rule for AMG Capital Management."
+            text: "Breyer will rule for AMG Capital Management.",
+            isCorrect: true
         }, {
-            text: "Barrett will rule for the Federal Trade Commission."
-        }]
+            text: "Barrett will rule for the Federal Trade Commission.",
+            isCorrect: false
+        }],
+        peterResult: "dissent join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "majority join",
+            Breyer: "majority author",
+            Alito: "majority join",
+            Sotomayor: "majority join",
+            Kagan: "majority join",
+            Gorsuch: "majority join",
+            Kavanaugh: "majority join",
+            Barrett: "majority join"
+        }
     },
     {
         name: "FCC v. Prometheus Radio Project",
@@ -991,11 +1023,25 @@
         peterOpinion: "Carr",
         peterJustification: "Carr should have the opportunity to have his case reviewed by a constitutionally appointed judge. Requiring him to raise this issue during a specific stage seems like an arbitrary burden.",
         predictions: [{
-            text: "The court will rule for Carr."
+            text: "The court will rule for Carr.",
+            isCorrect: true
         },
         {
-            text: "The court will rule unanimously."
-        }]
+            text: "The court will rule unanimously.",
+            isCorrect: true
+        }],
+        peterResult: "majority join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "concur author",
+            Breyer: "concur author",
+            Alito: "majority join",
+            Sotomayor: "majority author",
+            Kagan: "majority join",
+            Gorsuch: "concur join",
+            Kavanaugh: "majority join",
+            Barrett: "concur join"
+        }
     },
     {
         name: "Brnovich v. Democratic National Committee",
