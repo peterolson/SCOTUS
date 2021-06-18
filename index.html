@@ -495,31 +495,50 @@
         peterJustification: `The petitioners concede that a religious organization contracting with the city would not be allowed to deny couples to be foster parents based on a religious objection to interracial marriage.<br>
             In recent years, cases like Obergefell v. Hodges and Bostock v. Clayton County seem to indicate that the government has a compelling interest in protecting against discrimination based on sexual orientation, similar to its interest in protecting against discrimination based on other protected classes such as race, religion, sex, or national origin.`,
         predictions: [{
-            text: "Alito will rule for Fulton, since he believes sincere religious opposition to same-sex couples should be accommodated for in a pluralistic society. Alito has a track record of dissenting in related cases."
+            text: "Alito will rule for Fulton, since he believes sincere religious opposition to same-sex couples should be accommodated for in a pluralistic society. Alito has a track record of dissenting in related cases.",
+            isCorrect: true
         },
         {
-            text: "Thomas will rule for Fulton, as above."
+            text: "Thomas will rule for Fulton, as above.",
+            isCorrect: true
         },
         {
-            text: "Kavanaugh will rule for Fulton. In the oral arguments he mentioned that Catholic Social Services would refer same-sex couples to a different agency, and in practice no same-sex couples have sought to be foster parents through CSS, and thus in practice there is no compelling interest for the government to coerce CSS into going against their religious convictions."
+            text: "Kavanaugh will rule for Fulton. In the oral arguments he mentioned that Catholic Social Services would refer same-sex couples to a different agency, and in practice no same-sex couples have sought to be foster parents through CSS, and thus in practice there is no compelling interest for the government to coerce CSS into going against their religious convictions.",
+            isCorrect: true
         },
         {
-            text: "Barrett will rule for Fulton, since (1) she was a clerk for Scalia, who has a similar track record on related cases as Alito and Thomas, and (2) she is Catholic and more likely to sympathize with Catholic Social Services."
+            text: "Barrett will rule for Fulton, since (1) she was a clerk for Scalia, who has a similar track record on related cases as Alito and Thomas, and (2) she is Catholic and more likely to sympathize with Catholic Social Services.",
+            isCorrect: true
         },
         {
-            text: "Gorsuch will rule for City of Philadelphia, since he has a track record for deciding to protect LGBT rights in related cases."
+            text: "Gorsuch will rule for City of Philadelphia, since he has a track record for deciding to protect LGBT rights in related cases.",
+            isCorrect: false
         },
         {
-            text: "Breyer will rule for City of Philadelphia, as above."
+            text: "Breyer will rule for City of Philadelphia, as above.",
+            isCorrect: false
         },
         {
-            text: "Sotomayor will rule for City of Philadelphia, as above."
+            text: "Sotomayor will rule for City of Philadelphia, as above.",
+            isCorrect: false
         },
         {
-            text: "Kagan will rule for City of Philadelphia, as above."
+            text: "Kagan will rule for City of Philadelphia, as above.",
+            isCorrect: false
         },
         ],
-        justiceOpinions: []
+        peterResult: "dissent join",
+        opinions: {
+            Roberts: "majority author",
+            Thomas: "concur join",
+            Breyer: "concur join",
+            Alito: "concur author",
+            Sotomayor: "majority join",
+            Kagan: "majority join",
+            Gorsuch: "concur author",
+            Kavanaugh: "concur join",
+            Barrett: "concur author"
+        }
     },
     {
         name: "Brownback v. King",
@@ -618,27 +637,46 @@
         peterOpinion: "California",
         peterJustification: "The court ruled in National Federation of Independent Business v. Sebelius that the ACA individual mandate was constitutional under the Taxing and Spending Clause and thus that the tax penalty was not unconstitutionally coercive. A zero tax penalty is obviously less coercive than a non-zero tax penalty, so if congress has the authority to legislate the individual mandate with a penalty, it certainly has the authority to do so without a penalty. If congress wanted to repeal the ACA entirely, it should have done so, rather than zeroing the tax penalty and hoping that the courts would finish the job for them.",
         predictions: [{
-            text: "Alito will rule for Texas, since he dissented in National Federation of Independent Business v. Sebelius and believes the ACA is unconstitutional."
+            text: "Alito will rule for Texas, since he dissented in National Federation of Independent Business v. Sebelius and believes the ACA is unconstitutional.",
+            isCorrect: true
         },
         {
-            text: "Thomas will rule for Texas, as above."
+            text: "Thomas will rule for Texas, as above.",
+            isCorrect: false
         },
         {
-            text: "Kavanaugh will rule for Texas."
+            text: "Kavanaugh will rule for Texas.",
+            isCorrect: false
         },
         {
-            text: "Roberts will rule for California."
+            text: "Roberts will rule for California.",
+            isCorrect: true
         },
         {
-            text: "Breyer will rule for California."
+            text: "Breyer will rule for California.",
+            isCorrect: true
         },
         {
-            text: "Sotomayor will rule for California"
+            text: "Sotomayor will rule for California",
+            isCorrect: true
         },
         {
-            text: "Kagan will rule for California."
+            text: "Kagan will rule for California.",
+            isCorrect: true
         }
-        ]
+        ],
+        peterResult: "majority join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "concur author",
+            Breyer: "majority author",
+            Alito: "dissent author",
+            Sotomayor: "majority join",
+            Kagan: "majority join",
+            Gorsuch: "dissent join",
+            Kavanaugh: "majority join",
+            Barrett: "majority join"
+        }
     },
     {
         name: "Van Buren v. United States",
@@ -739,12 +777,26 @@
         peterOpinion: "Doe I",
         peterJustification: "U.S. corporations should be held liable for taking advantage of supply chains that involve child slavery.",
         predictions: [{
-            text: "The court will rule for Nestlé USA, Inc."
+            text: "The court will rule for Nestlé USA, Inc.",
+            isCorrect: true
         },
         {
-            text: "The court will rule unanimously."
+            text: "The court will rule unanimously.",
+            isCorrect: false
         }
-        ]
+        ],
+        peterResult: "dissent join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "majority author",
+            Breyer: "concur join",
+            Alito: "dissent author",
+            Sotomayor: "concur author",
+            Kagan: "concur join",
+            Gorsuch: "concur author",
+            Kavanaugh: "concur join",
+            Barrett: "majority join"
+        }
     },
     {
         name: "Edwards v. Vannoy",
