@@ -1705,7 +1705,8 @@
     let totalPredictions = 0;
 
     const agreements = {
-        Court: { agree: 0, total: 0 }
+        Court: { agree: 0, total: 0 },
+        "Unanimous Court": { agree: 0, total: 0 }
     };
 
     for (const c of cases) {
@@ -1719,6 +1720,7 @@
                 agreements.Court.agree += 0.5;
             }
         }
+        let isUnanimous = true;
         row.innerHTML = `<td><a href="${url}">${name}</a></td>
         <td class="${(peterResult || "").split("|")[0]}">${peterOpinion}</td>
         <td>${peterJustification}<hr/><ul>${predictions.map(x => {
@@ -1740,6 +1742,9 @@
             let opinion = (opinions || {})[justice];
             agreements[justice] = agreements[justice] || { agree: 0, total: 0 };
             if (opinion && peterResult) {
+                if (!opinion.includes("majority") && !opinion.includes("concur")) {
+                    isUnanimous = false;
+                }
                 agreements[justice].total++;
                 if ((peterResult.includes("majority") || peterResult.includes("concur"))) {
                     if (opinion.includes("majority") || opinion.includes("concur")) {
@@ -1772,13 +1777,21 @@
             return `<td class="${opinion || ""}">${justice}</td>`;
         }).join("")}`;
         table.append(row);
+        if (isUnanimous && peterResult) {
+            agreements["Unanimous Court"].total++;
+            if (peterResult.includes("majority") || peterResult.includes("concur")) {
+                agreements["Unanimous Court"].agree++;
+            } else if (peterResult.includes("mixed")) {
+                agreements["Unanimous Court"].agree += 0.5;
+            }
+        }
     }
     document.getElementById("totalPredictions").innerHTML = totalPredictions;
     document.getElementById("correctPredictions").innerHTML = correctPredictions + ` (${(correctPredictions * 100 / totalPredictions).toFixed(2)}%)`;
     document.getElementById("incorrectPredictions").innerHTML = (totalPredictions - correctPredictions) + ` (${((totalPredictions - correctPredictions) * 100 / totalPredictions).toFixed(2)}%)`;
 
     const agreementsTable = document.getElementById("agreements");
-    for (const justice of ["Court"].concat(justices)) {
+    for (const justice of ["Court", "Unanimous Court"].concat(justices)) {
         const { agree, total } = agreements[justice];
         const row = document.createElement("tr");
         row.innerHTML = `<td>with ${justice}</td><td>${total}</td><td>${agree}</td><td>${(agree * 100 / total).toFixed(2)}%</td>`;
