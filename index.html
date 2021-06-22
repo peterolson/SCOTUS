@@ -50,6 +50,14 @@
             content: "✔️ ";
         }
 
+        .partiallyCorrect {
+            color: rgb(168, 94, 4);
+        }
+
+        .partiallyCorrect:before {
+            content: "🟠 ";
+        }
+
         .incorrect {
             color: darkred;
         }
@@ -1170,7 +1178,18 @@
         url: "https://www.oyez.org/cases/2020/19-1434",
         peterOpinion: "",
         peterJustification: "I don't understand this case well enough to form an opinion on it.",
-        predictions: []
+        predictions: [],
+        opinions: {
+            Roberts: "majority author",
+            Thomas: "dissent author",
+            Breyer: "mixed author",
+            Alito: "majority join",
+            Sotomayor: "mixed join",
+            Kagan: "mixed join",
+            Gorsuch: "mixed author",
+            Kavanaugh: "majority join",
+            Barrett: "majority join"
+        }
     },
     {
         name: "Carr v. Saul",
@@ -1301,20 +1320,37 @@
         peterOpinion: "Arkansas Teacher Retirement System",
         peterJustification: "The lower court already considered Goldman's rebuttal evidence and the generic nature of the statements when certifying the shareholder class against Goldman Sachs.",
         predictions: [{
-            text: "Gorsuch will rule for Goldman Sachs"
+            text: "Gorsuch will rule for Goldman Sachs",
+            isCorrect: true
         },
         {
-            text: "Alito will rule for Goldman Sachs"
+            text: "Alito will rule for Goldman Sachs",
+            isCorrect: true
         },
         {
-            text: "Sotomayor will rule for Arkansas Teacher Retirement System"
+            text: "Sotomayor will rule for Arkansas Teacher Retirement System",
+            isCorrect: true
         },
         {
-            text: "Breyer will rule for Arkansas Teacher Retirement System"
+            text: "Breyer will rule for Arkansas Teacher Retirement System",
+            isCorrect: null
         },
         {
-            text: "The court will rule for Goldman Sachs"
-        }]
+            text: "The court will rule for Goldman Sachs",
+            isCorrect: null
+        }],
+        peterResult: "mixed|Sotomayor|Gorsuch_Alito_Thomas",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "mixed join",
+            Breyer: "majority join",
+            Alito: "mixed join",
+            Sotomayor: "mixed author",
+            Kagan: "majority join",
+            Gorsuch: "mixed author",
+            Kavanaugh: "majority join",
+            Barrett: "majority author"
+        }
     },
     {
         name: "TransUnion LLC v. Ramirez",
@@ -1334,11 +1370,25 @@
         peterOpinion: "Alston",
         peterJustification: "Academic-related benefits do not negatively impact amateurism in college sports.",
         predictions: [{
-            text: "The court will rule for Alston."
+            text: "The court will rule for Alston.",
+            isCorrect: true
         },
         {
-            text: "The court will rule unanimously."
-        }]
+            text: "The court will rule unanimously.",
+            isCorrect: true
+        }],
+        peterResult: "majority join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "majority join",
+            Breyer: "majority join",
+            Alito: "majority join",
+            Sotomayor: "majority join",
+            Kagan: "majority join",
+            Gorsuch: "majority author",
+            Kavanaugh: "concur author",
+            Barrett: "majority join"
+        }
     },
     {
         name: "Yellen v. Confederated Tribes of the Chehalis Reservation",
@@ -1665,10 +1715,12 @@
             agreements.Court.total++;
             if (peterResult.includes("majority") || peterResult.includes("concur")) {
                 agreements.Court.agree++;
+            } else if (peterResult.includes("mixed")) {
+                agreements.Court.agree += 0.5;
             }
         }
         row.innerHTML = `<td><a href="${url}">${name}</a></td>
-        <td class="${peterResult || ""}">${peterOpinion}</td>
+        <td class="${(peterResult || "").split("|")[0]}">${peterOpinion}</td>
         <td>${peterJustification}<hr/><ul>${predictions.map(x => {
             let className = "";
             if ("isCorrect" in x) {
@@ -1676,6 +1728,9 @@
                 if (x.isCorrect) {
                     className = "correct";
                     correctPredictions++;
+                } else if (x.isCorrect === null) {
+                    className = "partiallyCorrect";
+                    correctPredictions += 0.5;
                 }
                 else className = "incorrect";
             }
@@ -1698,6 +1753,18 @@
                         agreements[justice].agree++;
                     }
                     if (opinion.includes("mixed")) {
+                        agreements[justice].agree += 0.5;
+                    }
+                }
+                else if (peterResult.includes("mixed")) {
+                    const [result, agree, disagree] = peterResult.split("|");
+                    const agreeSet = new Set(agree.split("_"));
+                    const disagreeSet = new Set(disagree.split("_"));
+                    if (agreeSet.has(justice)) {
+                        agreements[justice].agree++;
+                    } else if (disagreeSet.has(justice)) {
+                        //
+                    } else {
                         agreements[justice].agree += 0.5;
                     }
                 }
