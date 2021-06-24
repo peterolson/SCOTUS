@@ -970,11 +970,22 @@
         }
     },
     {
-        name: "Collins v. Mnuchin",
+        name: "Collins v. Yellen",
         url: "https://www.oyez.org/cases/2020/19-422",
         peterOpinion: "",
         peterJustification: "I was not able to understand this case enough to form an opinion, even after listening to the arguments twice.",
-        predictions: []
+        predictions: [],
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "concur author",
+            Breyer: "mixed join",
+            Alito: "majority author",
+            Sotomayor: "mixed author",
+            Kagan: "concur author",
+            Gorsuch: "concur author",
+            Kavanaugh: "majority join",
+            Barrett: "majority join"
+        }
     },
     {
         name: "Pham v. Guzman Chavez",
@@ -1161,17 +1172,34 @@
         peterOpinion: "Lange",
         peterJustification: `The defendant did not commit a felony or a violent or dangerous crime, and the fact that they might not have even noticed the pursuit of the police until they reached the garage makes the "hot pursuit" classification rather dubious.`,
         predictions: [{
-            text: "The court will rule for California."
+            text: "The court will rule for California.",
+            isCorrect: false
         },
         {
-            text: "Alito will rule for Lange."
+            text: "Alito will rule for Lange.",
+            isCorrect: true
         }, {
-            text: "Gorsuch will rule for Lange."
+            text: "Gorsuch will rule for Lange.",
+            isCorrect: true
         }, {
-            text: "Roberts will rule for California."
+            text: "Roberts will rule for California.",
+            isCorrect: false
         }, {
-            text: "Kavanaugh will rule for California."
-        }]
+            text: "Kavanaugh will rule for California.",
+            isCorrect: false
+        }],
+        peterResult: "majority join",
+        opinions: {
+            Roberts: "concur author",
+            Thomas: "concur author",
+            Breyer: "majority join",
+            Alito: "concur join",
+            Sotomayor: "majority join",
+            Kagan: "majority author",
+            Gorsuch: "majority join",
+            Kavanaugh: "concur author",
+            Barrett: "majority join"
+        }
     },
     {
         name: "United States v. Arthrex, Inc.",
@@ -1241,14 +1269,29 @@
         peterOpinion: "Hassid",
         peterJustification: "Uncompensated time allowing for the agricultural relations board to access agricultural workers provides a function to ensure worker's rights are respected and is not more burdensome than requiring uncompensated access for government inspectors to ensure the safety of various businesses, such as nuclear power plants.",
         predictions: [{
-            text: "The court will rule for Hassid."
+            text: "The court will rule for Hassid.",
+            isCorrect: false
         },
         {
-            text: "Sotomayor will rule for Hassid."
+            text: "Sotomayor will rule for Hassid.",
+            isCorrect: true
         },
         {
-            text: "Kagan will rule for Hassid."
-        }]
+            text: "Kagan will rule for Hassid.",
+            isCorrect: true
+        }],
+        peterResult: "dissent join",
+        opinions: {
+            Roberts: "majority author",
+            Thomas: "majority join",
+            Breyer: "dissent author",
+            Alito: "majority join",
+            Sotomayor: "dissent join",
+            Kagan: "dissent join",
+            Gorsuch: "majority join",
+            Kavanaugh: "concur author",
+            Barrett: "majority join"
+        }
     },
     {
         name: "United States v. Cooley",
@@ -1643,11 +1686,25 @@
         peterOpinion: "B.L.",
         peterJustification: "Allowing schools to punish students for behavior that occurs outside school would set up a dangerous precedent and would be a gross overreach of power.",
         predictions: [{
-            text: "The court will rule for B.L."
+            text: "The court will rule for B.L.",
+            isCorrect: true
         },
         {
-            text: "The court will rule unanimously."
-        }]
+            text: "The court will rule unanimously.",
+            isCorrect: false
+        }],
+        peterResult: "majority join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "dissent author",
+            Breyer: "majority author",
+            Alito: "concur author",
+            Sotomayor: "majority join",
+            Kagan: "majority join",
+            Gorsuch: "concur join",
+            Kavanaugh: "majority join",
+            Barrett: "majority join"
+        }
     },
     {
         name: "PennEast Pipeline Co. v. New Jersey",
