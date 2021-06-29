@@ -85,6 +85,15 @@
             <td>Agree %</td>
         </tr>
     </table>
+    <h2>Agreements on non-unanimous cases</h2>
+    <table id="agreementsNonUnanimous">
+        <tr>
+            <td></td>
+            <td>Total #</td>
+            <td>Agree #</td>
+            <td>Agree %</td>
+        </tr>
+    </table>
     <h2>Legend</h2>
     <table>
         <tbody>
@@ -988,23 +997,41 @@
         }
     },
     {
-        name: "Pham v. Guzman Chavez",
+        name: "Johnson v. Guzman Chavez",
         url: "https://www.oyez.org/cases/2020/19-897",
         peterOpinion: "Chavez",
         peterJustification: "If the alien is not able to return to the designated country because of credible fear of persecution or torture, the removal decision cannot be considered final unless the fear is adjudicated or a third country is found.",
         predictions: [{
-            text: "The court will rule for Pham."
+            text: "The court will rule for Johnson.",
+            isCorrect: true
         }, {
-            text: "Breyer will for Chavez."
+            text: "Breyer will for Chavez.",
+            isCorrect: true
         }, {
-            text: "Kavanaugh will rule for Pham."
+            text: "Kavanaugh will rule for Johnson.",
+            isCorrect: true
         }, {
-            text: "Barrett will rule for Pham."
+            text: "Barrett will rule for Johnson.",
+            isCorrect: true
         }, {
-            text: "Thomas will rule for Pham."
+            text: "Thomas will rule for Johnson.",
+            isCorrect: true
         }, {
-            text: "Alito will rule for Pham."
-        }]
+            text: "Alito will rule for Johnson.",
+            isCorrect: true
+        }],
+        peterResult: "dissent join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "concur author",
+            Breyer: "dissent author",
+            Alito: "majority author",
+            Sotomayor: "dissent join",
+            Kagan: "dissent join",
+            Gorsuch: "concur join",
+            Kavanaugh: "majority join",
+            Barrett: "majority join"
+        }
     },
     {
         name: "Uzuegbunam v. Preczewski",
@@ -1401,11 +1428,25 @@
         peterOpinion: "Ramirez",
         peterJustification: "TransUnion irresponsibly showed alarming misleading information about people on their credit report, and should be liable for all of the affected credit reports, regardless of the proportion of people who were lucky enough to avoid suffering from it.",
         predictions: [{
-            text: "Sotomayor will rule for Ramirez, since she dissented in Spokeo v. Robins."
+            text: "Sotomayor will rule for Ramirez, since she dissented in Spokeo v. Robins.",
+            isCorrect: true
         },
         {
-            text: "The court will rule for Ramirez."
-        }]
+            text: "The court will rule for Ramirez.",
+            isCorrect: false
+        }],
+        peterResult: "dissent join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "dissent author",
+            Breyer: "dissent join",
+            Alito: "majority join",
+            Sotomayor: "dissent join",
+            Kagan: "dissent author",
+            Gorsuch: "majority join",
+            Kavanaugh: "majority author",
+            Barrett: "majority join"
+        }
     },
     {
         name: "National Collegiate Athletic Association v. Alston",
@@ -1439,11 +1480,25 @@
         peterOpinion: "Yellen",
         peterJustification: "Excluding ANCs from CARES Act payouts seems contrary to the intent of the act and results in a very strange reading of the law.",
         predictions: [{
-            text: "The court will rule for Yellen."
+            text: "The court will rule for Yellen.",
+            isCorrect: true
         },
         {
-            text: "The court will rule unanimously."
-        }]
+            text: "The court will rule unanimously.",
+            isCorrect: false
+        }],
+        peterResult: "majority join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "dissent join",
+            Breyer: "majority join",
+            Alito: "majority join",
+            Sotomayor: "majority author",
+            Kagan: "dissent join",
+            Gorsuch: "dissent author",
+            Kavanaugh: "majority join",
+            Barrett: "majority join"
+        }
     },
     {
         name: "Sanchez v. Mayorkas",
@@ -1588,20 +1643,37 @@
         peterOpinion: "Minerva Surgical",
         peterJustification: "Someone who has a patent should be allowed to later disavow the validity of that patent.",
         predictions: [{
-            text: "Gorsuch will rule for Minerva Surgical."
+            text: "Gorsuch will rule for Minerva Surgical.",
+            isCorrect: true
         },
         {
-            text: "Breyer will rule for Minerva Surgical."
+            text: "Breyer will rule for Minerva Surgical.",
+            isCorrect: null
         },
         {
-            text: "Sotomayor will rule for Minerva Surgical."
+            text: "Sotomayor will rule for Minerva Surgical.",
+            isCorrect: null
         },
         {
-            text: "Kagan will rule for Hologic, Inc."
+            text: "Kagan will rule for Hologic, Inc.",
+            isCorrect: null
         },
         {
-            text: "Thomas will rule for Hologic, Inc."
-        }]
+            text: "Thomas will rule for Hologic, Inc.",
+            isCorrect: false
+        }],
+        peterResult: "mixed|Barrett_Thomas_Gorsuch|Alito",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "dissent join",
+            Breyer: "majority join",
+            Alito: "dissent author",
+            Sotomayor: "majority join",
+            Kagan: "majority author",
+            Gorsuch: "dissent join",
+            Kavanaugh: "majority join",
+            Barrett: "dissent author"
+        }
     },
     {
         name: "Americans for Prosperity v. Bonta",
@@ -1647,12 +1719,29 @@
         peterOpinion: "HollyFrontier Cheyenne Refining LLC",
         peterJustification: "Small refineries should not be procedurally blocked from applying for an extension that is permitted 'for all time'. Even if HollyFrontier Cheyenne Refining LLC prevails, the EPA may still deny their extension on the grounds that following the regulations does not present sufficient hardship.",
         predictions: [{
-            text: "Kavanaugh will rule for HollyFrontier Cheyenne Refining LLC."
+            text: "Kavanaugh will rule for HollyFrontier Cheyenne Refining LLC.",
+            isCorrect: true
         },
         {
-            text: "Breyer will rule for HollyFrontier Cheyenne Refining LLC."
+            text: "Breyer will rule for HollyFrontier Cheyenne Refining LLC.",
+            isCorrect: true
         },
-        { text: "The court will rule for HollyFrontier Cheyenne Refining LLC." }]
+        {
+            text: "The court will rule for HollyFrontier Cheyenne Refining LLC.",
+            isCorrect: true
+        }],
+        peterResult: "majority join",
+        opinions: {
+            Roberts: "majority join",
+            Thomas: "majority join",
+            Breyer: "majority join",
+            Alito: "majority join",
+            Sotomayor: "dissent join",
+            Kagan: "dissent join",
+            Gorsuch: "majority author",
+            Kavanaugh: "majority join",
+            Barrett: "dissent author"
+        }
     },
     {
         name: "United States v. Palomar-Santiago",
@@ -1712,11 +1801,25 @@
         peterOpinion: "PennEast Pipeline Co.",
         peterJustification: "The federal government has authorized PennEast Pipeline Co. to act on its behalf, and thus has the same authority to condemn land that the federal government has.",
         predictions: [{
-            text: "The court will rule for PennEast Pipeline Co."
+            text: "The court will rule for PennEast Pipeline Co.",
+            isCorrect: true
         },
         {
-            text: "The court will rule unanimously."
-        }]
+            text: "The court will rule unanimously.",
+            isCorrect: false
+        }],
+        peterResult: "majority join",
+        opinions: {
+            Roberts: "majority author",
+            Thomas: "dissent join",
+            Breyer: "majority join",
+            Alito: "majority join",
+            Sotomayor: "majority join",
+            Kagan: "dissent join",
+            Gorsuch: "dissent author",
+            Kavanaugh: "majority join",
+            Barrett: "dissent author"
+        }
     },
     {
         name: "Terry v. United States",
@@ -1775,18 +1878,24 @@
         "Unanimous Court": { agree: 0, total: 0 }
     };
 
+    const nonUnanimousAgreements = {
+        Court: { agree: 0, total: 0 }
+    };
+
     for (const c of cases) {
         const { name, url, peterOpinion, peterJustification, predictions, peterResult, opinions } = c;
         const row = document.createElement("tr");
+        const changes = { Court: { agree: 0, total: 0 } };
         if (peterResult) {
-            agreements.Court.total++;
+            changes.Court.total++;
             if (peterResult.includes("majority") || peterResult.includes("concur")) {
-                agreements.Court.agree++;
+                changes.Court.agree++;
             } else if (peterResult.includes("mixed")) {
-                agreements.Court.agree += 0.5;
+                changes.Court.agree += 0.5;
             }
         }
         let isUnanimous = true;
+
         row.innerHTML = `<td><a href="${url}">${name}</a></td>
         <td class="${(peterResult || "").split("|")[0]}">${peterOpinion}</td>
         <td>${peterJustification}<hr/><ul>${predictions.map(x => {
@@ -1806,25 +1915,25 @@
         }).join("")}</ul></td>
         ${justices.map(justice => {
             let opinion = (opinions || {})[justice];
-            agreements[justice] = agreements[justice] || { agree: 0, total: 0 };
+            changes[justice] = changes[justice] || { agree: 0, total: 0 };
             if (opinion && peterResult) {
                 if (!opinion.includes("majority") && !opinion.includes("concur")) {
                     isUnanimous = false;
                 }
-                agreements[justice].total++;
+                changes[justice].total++;
                 if ((peterResult.includes("majority") || peterResult.includes("concur"))) {
                     if (opinion.includes("majority") || opinion.includes("concur")) {
-                        agreements[justice].agree++;
+                        changes[justice].agree++;
                     }
                     if (opinion.includes("mixed")) {
-                        agreements[justice].agree += 0.5;
+                        changes[justice].agree += 0.5;
                     }
                 } else if (peterResult.includes("dissent")) {
                     if (opinion.includes("dissent")) {
-                        agreements[justice].agree++;
+                        changes[justice].agree++;
                     }
                     if (opinion.includes("mixed")) {
-                        agreements[justice].agree += 0.5;
+                        changes[justice].agree += 0.5;
                     }
                 }
                 else if (peterResult.includes("mixed")) {
@@ -1832,11 +1941,11 @@
                     const agreeSet = new Set(agree.split("_"));
                     const disagreeSet = new Set(disagree.split("_"));
                     if (agreeSet.has(justice)) {
-                        agreements[justice].agree++;
+                        changes[justice].agree++;
                     } else if (disagreeSet.has(justice)) {
                         //
                     } else {
-                        agreements[justice].agree += 0.5;
+                        changes[justice].agree += 0.5;
                     }
                 }
             }
@@ -1851,17 +1960,37 @@
                 agreements["Unanimous Court"].agree += 0.5;
             }
         }
+        for (const justice in changes) {
+            agreements[justice] = agreements[justice] || { agree: 0, total: 0 };
+            agreements[justice].agree += changes[justice].agree;
+            agreements[justice].total += changes[justice].total;
+            if (!isUnanimous) {
+                nonUnanimousAgreements[justice] = nonUnanimousAgreements[justice] || { agree: 0, total: 0 };
+                nonUnanimousAgreements[justice].agree += changes[justice].agree;
+                nonUnanimousAgreements[justice].total += changes[justice].total;
+            }
+        }
     }
     document.getElementById("totalPredictions").innerHTML = totalPredictions;
     document.getElementById("correctPredictions").innerHTML = correctPredictions + ` (${(correctPredictions * 100 / totalPredictions).toFixed(2)}%)`;
     document.getElementById("incorrectPredictions").innerHTML = (totalPredictions - correctPredictions) + ` (${((totalPredictions - correctPredictions) * 100 / totalPredictions).toFixed(2)}%)`;
 
     const agreementsTable = document.getElementById("agreements");
+    const nonUnanimousAgreementsTable = document.getElementById("agreementsNonUnanimous");
     for (const justice of ["Court", "Unanimous Court"].concat(justices)) {
-        const { agree, total } = agreements[justice];
-        const row = document.createElement("tr");
-        row.innerHTML = `<td>with ${justice}</td><td>${total}</td><td>${agree}</td><td>${(agree * 100 / total).toFixed(2)}%</td>`;
-        agreementsTable.appendChild(row);
+        {
+            const { agree, total } = agreements[justice];
+            const row = document.createElement("tr");
+            row.innerHTML = `<td>with ${justice}</td><td>${total}</td><td>${agree}</td><td>${(agree * 100 / total).toFixed(2)}%</td>`;
+            agreementsTable.appendChild(row);
+        }
+        if (justice in nonUnanimousAgreements) {
+            const { agree, total } = nonUnanimousAgreements[justice];
+            console.log(justice, nonUnanimousAgreements[justice])
+            const row = document.createElement("tr");
+            row.innerHTML = `<td>with ${justice}</td><td>${total}</td><td>${agree}</td><td>${(agree * 100 / total).toFixed(2)}%</td>`;
+            nonUnanimousAgreementsTable.appendChild(row);
+        }
     }
 </script>
 
